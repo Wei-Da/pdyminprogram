@@ -1,0 +1,79 @@
+<!--pages/wxChart/wxChart.wxml-->
+<view class='main_page'>
+  <form report-submit='true' bindsubmit='turnToChart'>
+    <button plain class='btn_menu' style='border:none' form-type='submit' data-name='companyChart'>
+      <view class='data_item' data-name='companyChart'>
+        <image class='chart_image' src='../../images/all_company.png'></image>
+        <text class='data_item_text'>公司报表</text>
+      </view>
+    </button>
+  </form>
+
+  <view class='data_item_sub'>
+    <view class='data_item_sub_chart'>
+      <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu' style='border:none;line-height:50rpx' form-type='submit' data-name='serviceTimeout'>
+          <image class='chart_image' src='../../images/service_timeout.png'></image>
+          <text class='data_item_text'>超时服务</text>
+        </button>
+      </form>
+    </view>
+    <view class='data_item_sub_chart'>
+      <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu' style='border:none;line-height:50rpx' form-type='submit' data-name='serviceAttitude'>
+          <image class='chart_image' src='../../images/service_attitute.png'></image>
+          <text class='data_item_text'>服务态度</text>
+        </button>
+      </form>
+    </view>
+  </view>
+
+  <view class='data_item_sub'>
+    <view class='data_item_sub_chart' >
+    <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu' style='border:none;line-height:50rpx' form-type='submit' data-name='serviceCatalog'>
+      <image class='chart_image' src='../../images/service_catalog.png'></image>
+      <text class='data_item_text'>服务目录</text>
+      </button>
+      </form>
+    </view>
+    <view class='data_item_sub_chart' >
+    <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu' style='border:none;line-height:50rpx' form-type='submit' data-name='serviceEnginner'>
+      <image class='chart_image' src='../../images/enginner.png'></image>
+      <text class='data_item_text'>工程师</text>
+      </button>
+      </form>
+    </view>
+  </view>
+
+  <view class='data_item_sub'>
+    <view class='data_item_sub_chart' >
+    <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu' style='border:none;line-height:50rpx' form-type='submit' data-name='companyDate'>
+      <image class='chart_image' src='../../images/service_catalog.png'></image>
+      <text class='data_item_text'>公司日期</text>
+       </button>
+      </form>
+    </view>
+    <view class='data_item_chart_right'>
+      <view class='data_item_chart_right_sub' >
+      <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu_item' style='border:none;line-height:50rpx' form-type='submit' data-name='faultLevel'>
+        <image class='chart_image' src='../../images/fault_level.png'></image>
+        <text class='data_item_text'>故障等级</text>
+        </button>
+      </form>
+      </view>
+      <view class='data_item_chart_right_sub_bottom' >
+      <form report-submit='true' bindsubmit='turnToChart'>
+        <button plain class='btn_chart_menu_item' style='border:none;line-height:50rpx' form-type='submit' data-name='faultDate'>
+        <image class='chart_image' src='../../images/company_date.png'></image>
+        <text class='data_item_text'>故障日期</text>
+        </button>
+      </form>
+      </view>
+
+    </view>
+  </view>
+</view>

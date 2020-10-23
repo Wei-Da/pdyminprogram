@@ -1,0 +1,64 @@
+/* pages/serviceTable/noticeContentDetail/noticeContentDetail.wxss */
+/* pages/serviceTable/deviceDetail/deviceDetail.wxss */
+.image-dis{
+  margin: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.input-item-change{
+  display: block;
+  width: 2em;
+  color: #49B2F2;
+}
+.group_title{
+  height: 70rpx;
+  line-height: 70rpx;
+	display: flex;
+  flex-direction: row;
+	/* padding-left: 20rpx; */
+	background: #f9f9f9;
+}
+.scanner_image{
+  height: 50rpx;
+  width: 50rpx;
+  margin: 10rpx 10rpx;
+}
+.group_title_text{
+  height: 70rpx;
+  width: 50%;
+  text-align: center;
+  line-height: 70rpx;
+  
+}
+.group_title_view{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+.on{
+  color: #49B2F2;
+  /* background: #49B2F2;  */
+}
+.record_title{
+  text-align: right;
+  color: #666;
+}
+.input-item-content{
+  color: #333;
+  flex: 1;
+}
+.notice_content{
+  text-align: right;
+  color: #666;
+}
+.note_item text{
+display: -webkit-box;
+font-size:28rpx;
+color:#000000;
+line-height: 40rpx;
+word-break: break-all;
+-webkit-box-orient: vertical;
+-webkit-line-clamp:3;
+overflow: hidden;
+text-overflow:ellipsis;
+}

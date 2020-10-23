@@ -1,0 +1,145 @@
+<!--pages/customerPage/customerPage.wxml-->
+<scroll-view>
+<view class='container'>
+  <swiper class='index-banner' indicator-dots='{{true}}' autoplay='{{true}}' interval='{{4000}}' duration='{{1000}}' bindchange="bindchange" style="height:{{imgheights[current]}}rpx;">
+    <block wx:for="{{imgUrls}}" wx:key="{{this}}">
+      <swiper-item>
+        <image src="{{item}}" data-id='index' mode="widthFix" class="slide-image" bindload="imageLoad" />
+      </swiper-item>
+    </block>
+  </swiper> 
+
+  <view class='shortcut_group' wx:if='{{appRole==3}}'>
+    <navigator class='shortcut_item' url="../serviceTable/serviceSelfHelp/serviceSelfHelp">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitAllocationAccount}}</text>
+          <text class='shortcut_text'>待分配</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../serviceTable/serviceChange/serviceChange">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitChangeAccount}}</text>
+          <text class='shortcut_text'>待变更</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../serviceTable/serviceTableClose/serviceTableClose">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitEvaluateAccount}}</text>
+          <text class='shortcut_text'>待评价</text>
+        </button>
+      </form>
+    </navigator>
+  </view>
+
+
+  <view class='shortcut_group' wx:if='{{appRole==1||appRole==4}}'>
+    <navigator class='shortcut_item' url="../customerService/customerTodayAdd/customerTodayAdd?isMyService=2">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{todayAddAccount}}</text>
+          <text class='shortcut_text'>今日新增</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../customerService/customerWaitAllocation/customerWaitAllocation">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitAllocationAccount}}</text>
+          <text class='shortcut_text'>未分配</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line' ></view>
+    <navigator class='shortcut_item' url="../customerService/customerDealingService/customerDealingService">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{dealingAccount}}</text>
+          <text class='shortcut_text'>进行中</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../customerService/customerTodayAdd/customerTodayAdd?isMyService=1">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{myserviceAccount}}</text>
+          <text class='shortcut_text'>我的服务</text>
+        </button>
+      </form>
+    </navigator>
+  </view>
+
+
+  <view class='shortcut_group' wx:if='{{appRole==2||appRole==5}}'>
+    <navigator class='shortcut_item' url="../serviceCompany/serviceTodayAdd/serviceTodayAdd">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{todayAddAccount}}</text>
+          <text class='shortcut_text'>今日新增</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../serviceCompany/waitConfirm/waitConfirm">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitConfirmAccount}}</text>
+          <text class='shortcut_text'>待确认</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../serviceCompany/waitService/waitService">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{waitServiceAccount}}</text>
+          <text class='shortcut_text'>待服务</text>
+        </button>
+      </form>
+    </navigator>
+    <view class='shortcut_line'></view>
+    <navigator class='shortcut_item' url="../serviceCompany/myService/myService">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn' style='border:none' form-type='submit' data-type='click'>
+          <text class='shortcut_text'>{{myserviceAccount}}</text>
+          <text class='shortcut_text'>我的服务</text>
+        </button>
+      </form>
+    </navigator>
+  </view>
+
+  <view style='height:40rpx;width:100%;background:#D9D9DA'></view>
+
+
+  <view class="index-menu">
+    <navigator class="index-menu-item" wx:for="{{indexmenu}}" wx:key="{{item.url}}" url="../{{item.pakage!=''?item.pakage+'/':''}}{{item.url}}/{{item.url}}">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn_menu' style='border:none' form-type='submit' data-type='click'>
+          <image src="{{item.icon}}"></image>
+          <text>{{item.text}}</text>
+        </button>
+      </form>
+    </navigator>
+    <navigator class="index-menu-item">
+      <form report-submit='true' bindsubmit='applySubmit'>
+        <button plain class='btn_menu' style='border:none' form-type='submit' data-type='click' open-type='contact'>
+          <image src="./../../images/menu18.png"></image>
+          <text>在线咨询</text>
+        </button>
+      </form>
+    </navigator>
+  </view>
+  
+
+
+</view>
+
+</scroll-view>

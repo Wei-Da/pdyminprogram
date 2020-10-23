@@ -1,0 +1,40 @@
+<!--pages/searchCompanyName/searchCompanyName.wxml-->
+<view class='all_group'>
+  <view class='title_group'>
+    <view class='title_group_search'>
+      <image class='search_image'  src='../../images/search_img.png'></image>
+      <input class='search_input' placeholder='请输入关键词' bindinput='onInputListener' value='{{keyWords}}'></input>
+      <image hidden='{{deleteHidden}}' class='delete_image' src='../../images/search_edit_delete.png' bindtap='clearInputData'></image>
+    </view>
+    <text class='title_cancel' bindtap='keywordSearch'>搜索</text>
+  </view>
+
+  <view class='group-detail' wx:if='{{!searchHiddlen&&hasRecord}}'>
+    <view class='record_history_group' >
+        <text class='record_history_text'>常搜公司:</text>
+        <view class='record_content_group'>
+          <block wx:for="{{recordHistory}}">
+            <text class='record_content' bindtap='chooseKeyword' data-pickername='{{item}}' >{{item}}</text>
+          </block>
+        </view>
+    </view>
+  </view>
+
+  <view class='group-detail' wx:if='{{!searchHiddlen}}'>
+      <text class='record_history_text' style='background: #F0EFF4'>公司名称:</text>
+      <block wx:for="{{deviceList}}">
+        <text class='device_name' data-index='{{index}}' bindtap='chooseDevice' >{{item}}</text>
+      </block>
+  </view>
+
+  <view class='group-detail' wx:if='{{searchHiddlen}}'>
+      <block wx:for="{{searchDeviceList}}">
+        <text class='device_name' data-index='{{index}}' bindtap='chooseSerachDevice' >{{item.name}}</text>
+      </block>
+  </view>
+ 
+  
+
+  
+
+</view>

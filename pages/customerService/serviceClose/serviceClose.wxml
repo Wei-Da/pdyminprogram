@@ -1,0 +1,59 @@
+<!--pages/serviceCompany/mineCreateService/mineCreateService.wxml-->
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='applySubmit'>
+    <view class="group">
+      <view class="group-body">
+        <view class="input-list">
+
+
+        <view class="input-item" >
+            <button class="input-item-lable" style='flex:1' bindtap="insertCost">增加额外费用</button>
+        </view>
+
+        <view class="input-item" style="border-top:0rpx;padding-top:0rpx">
+            <button class="input-item-lable" style='flex:1' bindtap="deleteCost">删除额外费用</button>
+        </view>
+
+        <view class='cost_group' wx:for="{{extraCosts}}">
+
+          <view class="input-item">
+            <text class="input-item-lable">额外花费</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="costType{{index}}" value="{{costTypeIndexs[index].mIndex}}" range="{{costTypes}}" mode="selector">{{costTypes[costTypeIndexs[index].mIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">费用</text>
+            <view class="input-item-content">
+              <input type='number' placeholder='请输入费用'  name="cost{{index}}" value=""></input>
+            </view>
+          </view>
+
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">权重</text>
+            <view class="input-item-content">
+              <input type="number" placeholder="请输入权重值" value='{{weight}}' name="weight" disabled='true' ></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">备注</text>
+            <text type='text' style='flex:1;text-align: right' bindtap='transferDescribe'>{{serviceDescribe}}</text>
+            <image class="transfer_image" src='../../../images/transfer.png'></image>
+          </view>
+
+
+        </view>
+      </view>
+
+    </view>
+
+
+    <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

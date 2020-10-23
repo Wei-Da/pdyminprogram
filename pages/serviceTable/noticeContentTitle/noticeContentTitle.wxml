@@ -1,0 +1,17 @@
+<!--pages/serviceTable/noticeContentTitle/noticeContentTitle.wxml-->
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+<view class='info_group'>
+  <view wx:if="{{serviceList.length==0&&isFinishRequest}}" class='no_data_view'  >
+      <image src="../../../images/no_data.png"></image>
+    <text class='no_data_text'>没有数据</text>
+  </view>
+   <navigator wx:if="{{serviceList.length!=0}}" class="info_item" wx:for="{{serviceList}}" bindtap='bindtapTurnto' data-index='{{index}}' >
+   <view style='display: flex;flex: 1'>
+      <!-- <image class='info_image' src='../../../images/menu3.png'></image> -->
+      <text class='info_text'>{{item.noticeTitle}}</text> 
+    </view>
+      <image class='info_image_transfer' src='../../../images/transfer.png'></image>         
+  </navigator>
+            
+</view>
+</scroll-view>

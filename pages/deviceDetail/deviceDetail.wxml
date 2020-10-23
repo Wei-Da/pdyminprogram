@@ -1,0 +1,211 @@
+<!--pages/serviceTable/deviceDetail/deviceDetail.wxml-->
+<!-- <view class="container container-gray"> -->
+  <view class='scanner_page_group' wx:if="{{isScannerPage}}">
+    <text class='scanner_page_text'>二维码扫描</text>
+    <image class='scanner_page_image' src='../../images/scanner.png' bindtap='scannerPage'></image>
+  </view>
+  <!-- <form class='container-body' report-submit='true' bindsubmit='applySubmit' wx:if="{{!isScannerPage}}"> -->
+     <view class="group" wx:if="{{!isScannerPage}}"> 
+      <view class="group_title">
+        <view class='group_title_view'>
+          <text class="group_title_text {{currentTab==0 ? 'on':''}}" data-type='click' data-current='0' bindtap='chooseCatalog'>设备详情</text>
+          <text class="group_title_text {{currentTab==1 ? 'on':''}}" data-type='click' data-current='1' bindtap='chooseCatalog'>维修记录</text>
+        </view>
+        <image class='scanner_image' src='../../images/scanner.png' bindtap='scannerData'></image>
+      </view>
+
+      <view class="group-body" wx:if="{{isDeviceInfoDetail}}">
+        <view class="input-list">
+
+          <view class="input-item">
+            <text class="input-item-lable">公司名称</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{companyName}}' name="companyName"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">部门名称</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deptName}}' name="deptName"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">机房名</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{machineRoom}}' name="machineRoom"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">机柜号</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{cabinet}}' name="cabinet"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备类型</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceType}}' name="deviceType"></input>
+            </view>
+          </view> 
+
+          <view class="input-item">
+            <text class="input-item-lable">设备名称</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceName}}' name="deviceName"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备IP</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceIP}}' name="deviceIP"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备品牌</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceMark}}' name="deviceMark"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备型号</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceModel}}' name="deviceModel"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">上架位置</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{lineLocation}}' name="lineLocation"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备SN</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{deviceSN}}' name="deviceSN"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备PN</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{devicePN}}' name="devicePN"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">操作系统</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{operateSystem}}' name="operateSystem"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">投运时间</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{useTime}}' name="useTime"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">负责人</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{inchargeName}}' name="inchargeName"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">联系电话</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{inchargePhone}}' name="inchargePhone"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">出厂编号</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{productNum}}' name="productNum"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">地址</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{address}}' name="address"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">备注</text>
+            <view class="input-item-content">
+              <input type='text' disabled='true' value='{{note}}' name="note"></input>
+            </view>
+          </view>
+
+
+        </view>
+      </view>
+
+
+       <!-- <view class="group-body" wx:if="{{!isDeviceInfoDetail}}">  -->
+
+        
+
+        </view>  
+
+        <scroll-view class="container-body" scroll-y="true" wx:if="{{!isDeviceInfoDetail&&!isScannerPage}}" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh"> 
+
+
+          <view class="input-list" style='padding-bottom:5rpx;margin-top: 0rpx;margin-bottom: 0rpx;border-bottom:0rpx solid #fff' wx:for="{{repairRecords}}">
+            <view class="input-item" style='padding:0rpx'>
+              <text class="input-item-lable">维修主题</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' style='color:#000;font-size:35rpx' type="text" value='{{item.title}}' name="title"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx'>
+              <text class="input-item-lable">维修人</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' type="text" value='{{item.personName}}' name="title"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+              <text class="input-item-lable">维修状态</text>
+              <view class="input-item-content">
+                <input class='record_title' style='color:#1AAC19' disabled='true' name="title" type="text" value="{{item.faultStatus==7?'已完成':item.faultStatus==9?'已完成':'处理中'}}"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+              <text class="input-item-lable">维修日期</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' type="text" value='{{item.faultDate}}' name="title"></input>
+              </view>
+            </view>
+
+            
+
+
+          </view>
+
+
+
+        </scroll-view>
+
+
+
+    <!-- </view> -->
+
+
+  <!-- </form> -->
+<!-- </view> -->

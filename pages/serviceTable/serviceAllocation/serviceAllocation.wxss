@@ -1,0 +1,12 @@
+/* pages/createService/createService.wxss */
+.image-dis{
+  margin: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.input-item-change{
+  display: block;
+  width: 2em;
+  color: #49B2F2;
+  
+}

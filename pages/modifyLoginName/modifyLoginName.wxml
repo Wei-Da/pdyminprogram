@@ -1,0 +1,17 @@
+<!--pages/modifyLoginName/modifyLoginName.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<form class='container-body' report-submit='true' bindsubmit='modifyLoginName' >
+    <view class='input-account'>
+          <text class='page_text'>原电话:</text>
+          <text class='login_name_text' >{{originalMobile}}</text>
+    </view>
+
+    <view class='input-account'>
+          <text class='page_text'>新电话:</text>
+          <input class='account-content' placeholder='请输入新电话' name="newMobile" value='{{newMobile}}'></input>
+    </view>
+
+    <view class="btn-submit">
+      <button class='btn-block btn-orange' form-type='submit'>确认修改</button>
+    </view>
+  </form>

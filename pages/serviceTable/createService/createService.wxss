@@ -1,0 +1,58 @@
+/* pages/createService/createService.wxss */
+.image-dis{
+  margin: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.input-item-change{
+  display: block;
+  width: 2.5em;
+  color: #49B2F2;
+}
+.group_title{
+  height: 70rpx;
+  line-height: 70rpx;
+	display: flex;
+  flex-direction: row;
+	padding-left: 20rpx;
+	background: #f9f9f9;
+}
+.scanner_image{
+  height: 50rpx;
+  width: 50rpx;
+  margin: 10rpx 10rpx;
+}
+.group_title_text{
+  height: 70rpx;
+  flex: 1;
+  line-height: 70rpx;
+}
+/*画廊*/
+.gallery {
+	/*margin-bottom: 100rpx;*/
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+/*每张图片所占容器*/
+.item {
+	position: relative;
+	margin: 5px;
+}
+
+/*删除按钮*/
+.delete {
+	position: absolute;
+	height: 20px;
+	bottom: 0;
+	width: 100%;
+	background: #ccc;
+	opacity: .8; 
+}
+
+.delete image {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}

@@ -1,0 +1,71 @@
+<!--pages/deviceCheckSummary/deviceCheckSummary.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<!-- 页面弹窗 -->
+
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='savePatrolTaskReport'>
+    <view class="group">
+
+      <view class="group-body">
+        <view class="input-list">
+
+          <view class="input-item">
+            <text class="input-item-lable">计划名称:</text>
+            <view class="input-item-content">
+              <text>{{instanceName==''?'--':instanceName}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备数:</text>
+            <view class="input-item-content">
+              <text>{{totalCount==''?'--':totalCount}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">正常数:</text>
+            <view class="input-item-content">
+              <text>{{normalCount==''?'0':normalCount}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">异常数:</text>
+            <view class="input-item-content">
+              <text>{{abNormalCount==''?'0':abNormalCount}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">未检测数:</text>
+            <view class="input-item-content">
+              <text>{{abDetectionCount==''?'0':abDetectionCount}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">时间:</text>
+            <view class="input-item-content">
+              <text>{{time==''?'--':time}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">总结</text>
+            <text type='text' style='flex:1;text-align: right' bindtap='transferDescribe'>{{serviceDescribe}}</text>
+            <image class="transfer_image" src='../../../images/transfer.png'></image>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+
+    
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" form-type='submit'>保存</button>
+    </view>
+  </form>
+</view>

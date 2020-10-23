@@ -1,0 +1,29 @@
+<!--pages/customerService/customerDealingService/customerDealingService.wxml-->
+<image class='buttom' src='../../../images/search_button.png' bindtap='keyWordsSearch'></image>
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}"  lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+<view wx:if="{{serviceList.length==0&&isFinishRequest}}" class='no_data_view'  >
+    <image src="../../../images/no_data.png"></image>
+    <text class='no_data_text'>没有数据</text>
+  </view>
+   <view class="service-list" wx:if="{{serviceList.length!=0}}"> 
+    <navigator class="service-item" wx:for="{{serviceList}}" url='../serviceSelfHelpDetail/serviceSelfHelpDetail?servicer={{item.personName}}&&companyName={{item.companyNameRepair}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.equipmentId}}&&processId={{item.processId}}&&perId={{item.perId}}'>
+    <form report-submit='true' bindsubmit='applySubmit' style='width:100%'>
+        <button plain class='btn_menu' style='border:none;line-height:50rpx;' form-type='submit' data-type='click'>
+      <view class="service-img">
+        <image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../../images/serious_note.png" mode="aspectFill"></image>
+        <image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../../images/warnning_note.png" mode="aspectFill"></image>
+        <image wx:else="{{3==3}}" src="../../../images/normal_note.png" mode="aspectFill"></image>
+      </view>
+      <view class="service-text">
+        <view class="service-tite">{{item.title}}</view>
+        <view class="service-tags">
+          <text>{{item.companyName}}</text>
+        </view>
+        <text class="service-city">{{item.faultDate}}</text>
+      </view>
+      </button>
+      </form>
+    </navigator>
+   </view> 
+
+</scroll-view>

@@ -1,0 +1,84 @@
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='applySubmit'>
+  <view class="group">
+    <view class="group-header">服务分配</view>
+      <view class="group-body">
+        <view class="input-list">
+
+        <view class="input-item">
+            <text class="input-item-lable">公司类型</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="companyType" value="{{companyTypeIndex}}" range="{{companyTypes}}" mode="selector">{{companyTypes[companyTypeIndex]}}</picker>
+          </view> 
+
+          <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">公司名称</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"             data-pickername="companyName" value="{{companyNameIndex}}" range="{{companyNames}}"               mode="selector">{{companyNames[companyNameIndex]}}</picker>
+          </view>
+
+           <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">部门</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"         data-pickername="departmentName" value="{{departmentNameIndex}}" range="{{departmentNames}}"              mode="selector">{{departmentNames[departmentNameIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">服务人</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange" data-pickername="repairName" value="{{repairNameIndex}}" range="{{repairNames}}"                             mode="selector" >{{repairNames[repairNameIndex]}}</picker>
+          </view> 
+
+          <view class="input-item" wx:if="{{!isRepairCompany}}">
+            <text class="input-item-lable">公司名称</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"             data-pickername="serviceCompany" value="{{serviceCompanyIndex}}" range="{{serviceCompanys}}"               mode="selector">{{serviceCompanys[serviceCompanyIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{!isRepairCompany}}">
+            <text class="input-item-lable">服务人</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange" data-pickername="serviceMan" value="{{serviceManIndex}}" range="{{serviceMans}}"                             mode="selector" >{{serviceMans[serviceManIndex]}}</picker>
+          </view> 
+
+          <view class="input-item">
+            <text class="input-item-lable">报修电话</text>
+            <view class="input-item-content">
+              <text type='text' disabled='true'>{{telephone}}</text>
+              <!-- <input type='text' wx:else  placeholder='请输入电话' value='{{repairManPhone}}' name = "repairManPhone"></input> -->
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务目录</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"  value="{{serviceCatalogIndex}}" range="{{serviceCatalogs}}" mode="selector" data-pickername="serviceCatalog" >{{serviceCatalogs[serviceCatalogIndex]}}</picker>
+          </view> 
+
+          <view class="input-item">
+            <text class="input-item-lable">具体服务</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"  value="{{serviceDetailIndex}}" range="{{serviceDetails}}" mode="selector" data-pickername="serviceDetail" >{{serviceDetails[serviceDetailIndex]}}</picker>
+          </view> 
+
+           <view class="input-item">
+            <text class="input-item-lable">权重</text>
+            <view class="input-item-content">
+              <text>{{weight}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">超时时间</text>
+            <view class="input-item-content" bindtap='toEndTimeChoose'>
+              <text>{{endTime}}</text>
+            </view>
+          </view> 
+
+
+        </view>
+      </view>
+
+    
+      
+  </view>
+
+  
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class="btn-submit">
+		<button class="btn-block btn-orange" form-type='submit' >提交</button>
+</view>
+  </form>
+</view>

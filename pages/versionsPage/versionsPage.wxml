@@ -1,0 +1,15 @@
+<!--pages/versionsPage/versionsPage.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class='container'>
+  <form class='container-body' report-submit='true' bindsubmit='doLogin'>
+    <view class='logo-content'>
+      <view class='logo-content-detail'>
+        <image class='logo-content-detail-image' src='./../../images/logo.png'></image>
+        <text class='logo-content-detail-text'>派单易</text>
+        <text class='logo-content-detail-text'>V 3.3.02</text>
+      </view>
+    </view>
+  </form>
+  <text class='product-company'>Copyright © 2017-2018 南京碧慧电子技术有限公司.</text>
+  <text class='product-company'>All Rights Reserved</text>
+</view> 

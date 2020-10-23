@@ -1,0 +1,16 @@
+<!--pages/dataChart/companyChart/companyChart.wxml-->
+<view class="container">
+     <view class='search_group'>
+      <text class='search_text'>开始日期:</text>
+      <!-- <text class='search_date'>yy-mm-dd</text> -->
+      <picker class='search_date' mode="date" value="{{nowStartDate}}" start="{{startDate}}" end="{{endDate}}" data-current='start' bindchange="bindDateChange">{{nowStartDate}}</picker>
+      <text class='search_text'>结束日期:</text>
+      <!-- <text class='search_date'>yy-mm-dd</text> -->
+      <picker class='search_date' mode="date" value="{{nowEndDate}}" start="{{closeStartDate}}" end="{{closeEndDate}}" data-current='end'  bindchange="bindDateChange">{{nowEndDate}}</picker>
+      <text class='search_button' bindtap='searchData'>搜索</text>
+    </view> 
+     <!-- <text class='search_title'>公司报表</text>   -->
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:60%;width:100%" bindtouchstart="touchHandler"></canvas>
+     <canvas canvas-id="columnCanvas" class="canvas" style="height:40%;width:100%" bindtouchstart="touchHandler"></canvas> 
+</view>
+

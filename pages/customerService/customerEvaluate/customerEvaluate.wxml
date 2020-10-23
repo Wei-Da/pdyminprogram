@@ -1,0 +1,40 @@
+<!--pages/customerService/customerEvaluate/customerEvaluate.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+<view class='container container-gray'>
+<form class='container-body' report-submit='true' bindsubmit='doEvaluate'>
+  <view class='group' style='flex:1'>
+    <view class='group-header'>服务客评</view>
+    <view class='group-body'>
+      <view class='input-list'>
+
+        <view class="input-item input-item-full">
+					<text class="input-item-label">服务态度</text> 
+					<radio-group class="radio-group" bindchange="attitudeChange">
+            <label class="radio" wx:for="{{serviceAttitudes}}">
+              <radio class='radio-item' value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+				</view>
+
+        <view class="input-item input-item-full">
+					<text class="input-item-label">工作质量</text>
+						<radio-group class="radio-group" bindchange="qualityChange">
+            <label class="radio" wx:for="{{jobQualitys}}">
+              <radio class='radio-item' value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+				</view>
+
+        <view class="input-item input-item-full">
+					<text class="input-item-label">评价内容</text>
+					<textarea placeholder="请输入评价内容" maxlength="100" value='{{evaluateContent}}' name='evaluateContent'></textarea>
+				</view>
+
+      </view>
+    </view>
+  </view>
+  <view class="btn-submit">
+		<button class="btn-block btn-orange" form-type='submit'>提交</button>
+	</view>
+</form>
+</view>

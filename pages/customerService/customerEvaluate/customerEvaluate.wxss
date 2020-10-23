@@ -1,0 +1,4 @@
+/* pages/customerService/customerEvaluate/customerEvaluate.wxss */
+.radio-item{
+  position: static;
+}

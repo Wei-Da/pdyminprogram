@@ -1,0 +1,163 @@
+{
+  "pages": [
+    "pages/splashPage/splashPage",
+    "pages/waitServiceTestDetail/waitServiceTestDetail",
+    "pages/checkReport/checkReport",
+    "pages/versionsPage/versionsPage",
+    "pages/repairRecordPage/repairRecordPage",
+    "pages/modifyLoginName/modifyLoginName",
+    "pages/modifyPwd/modifyPwd",
+    "pages/searchPage/searchPage",
+    "pages/searchCompanyName/searchCompanyName",
+    "pages/deviceCheckSummary/deviceCheckSummary",
+    "pages/wxChartSample/wxChartSample",
+    "pages/login/login",
+    "pages/dateChoose/dateChoose",
+    "pages/noticeContent/noticeContent",
+    "pages/personalInfo/personalInfo",
+    "pages/setting/setting",
+    "pages/serviceDescribe/serviceDescribe",
+    "pages/wxChart/wxChart",
+    "pages/keySearch/keySearch",
+    "pages/customerPage/customerPage",
+    "pages/deviceDetail/deviceDetail",
+    "pages/patrolContentHistory/patrolContentHistory"
+  ],
+  
+  "subPackages": [
+    {
+      "root": "pages/customerService/",
+      "pages": [
+        "libSearch/libSearch",
+        "repairRecord/repairRecord",
+        "repairRecordDetail/repairRecordDetail",
+        "customerCreateService/customerCreateService",
+        "customerWaitAllocation/customerWaitAllocation",
+        "customerWaitAllocationDetail/customerWaitAllocationDetail",
+        "customerDealingService/customerDealingService",
+        "faultRecord/faultRecord",
+        "customerServiceClose/customerServiceClose",
+        "customerServiceCloseDeatil/customerServiceCloseDeatil",
+        "customerEvaluate/customerEvaluate",
+        "customerCompanyRecord/customerCompanyRecord",
+        "customerTodayAdd/customerTodayAdd",
+        "waitConfirm/waitConfirm",
+        "waitConfirmDetail/waitConfirmDetail",
+        "waitService/waitService",
+        "waitServiceDetail/waitServiceDetail",
+        "serviceSign/serviceSign",
+        "addServiceRecord/addServiceRecord",
+        "serviceClose/serviceClose",
+        "oldVersionFileDetail/oldVersionFileDetail"
+      ]
+    },
+    {
+      "root": "pages/serviceTable/",
+      "pages": [
+        "noticeContentTitle/noticeContentTitle",
+        "noticeContentDetail/noticeContentDetail",
+        "clientEvaluate/clientEvaluate",
+        "serviceSelfHelp/serviceSelfHelp",
+        "serviceSelfHelpDetail/serviceSelfHelpDetail",
+        "serviceTableDeal/serviceTableDeal",
+        "serviceTableDealDetail/serviceTableDealDetail",
+        "serviceTableClose/serviceTableClose",
+        "serviceTableCloseDetail/serviceTableCloseDetail",
+        "serviceQuery/serviceQuery",
+        "serviceChange/serviceChange",
+        "serviceChangeDetail/serviceChangeDetail",
+        "createService/createService",
+        "serviceRecord/serviceRecord",
+        "serviceAllocation/serviceAllocation",
+        "serviceChangePerson/serviceChangePerson",
+        "serviceTableHistoryDetail/serviceTableHistoryDetail",
+        "serviceFile/serviceFile",
+        "oldVersionFileDetail/oldVersionFileDetail",
+        "observePerson/observePerson"
+      ]
+    },
+    {
+      "root": "pages/serviceCompany/",
+      "pages": [
+        "waitConfirm/waitConfirm",
+        "waitConfirmDetail/waitConfirmDetail",
+        "waitService/waitService",
+        "waitServiceDetail/waitServiceDetail",
+        "serviceHistoryRecord/serviceHistoryRecord",
+        "serviceHistoryRecordDetail/serviceHistoryRecordDetail",
+        "mineCreateService/mineCreateService",
+        "companyRecord/companyRecord",
+        "myService/myService",
+        "serviceTodayAdd/serviceTodayAdd",
+        "serviceSign/serviceSign",
+        "addServiceRecord/addServiceRecord",
+        "serviceClose/serviceClose",
+        "patrolPage/patrolPage",
+        "patrolPageDetail/patrolPageDetail",
+        "taskDealPage/taskDealPage",
+        "taskDealPageDetail/taskDealPageDetail",
+        "oldVersionFileDetail/oldVersionFileDetail"
+      ]
+    },
+    {
+      "root": "pages/dataChart/",
+      "pages": [
+        "companyChart/companyChart",
+        "companyDate/companyDate",
+        "faultDate/faultDate",
+        "dataChart/dataChart"
+      ]
+    }
+  ],
+  "permission":{
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#49B2F2",
+    "navigationBarTitleText": "江苏怡通数码科技有限公司",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/noticeContent/noticeContent",
+        "text": "公告",
+        "iconPath": "images/notice_unselect.png",
+        "selectedIconPath": "images/notice_select.png"
+      },
+      {
+        "pagePath": "pages/deviceDetail/deviceDetail",
+        "text": "设备扫描",
+        "iconPath": "images/scanner_unselect.png",
+        "selectedIconPath": "images/scanner_select.png"
+      },
+      {
+        "pagePath": "pages/customerPage/customerPage",
+        "text": "工作",
+        "iconPath": "images/unselect_main_page.png",
+        "selectedIconPath": "images/select_main_page.png"
+      },
+      {
+        "pagePath": "pages/wxChartSample/wxChartSample",
+        "text": "报表",
+        "iconPath": "images/unselect_disdata.png",
+        "selectedIconPath": "images/select_disdata.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "我的",
+        "iconPath": "images/select_setting.png",
+        "selectedIconPath": "images/unselect_setting.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#4FB880",
+    "backgroundColor": "#f6f6f6",
+    "borderStyle": "white"
+  },
+
+  "sitemapLocation": "sitemap.json"
+}

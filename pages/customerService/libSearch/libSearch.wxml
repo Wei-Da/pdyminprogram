@@ -1,0 +1,44 @@
+<!--pages/keySearch/keySearch.wxml-->
+<view class='all_group'>
+  <view class='title_group'>
+    <view class='title_group_search'>
+      <image class='search_image' bindtap='searchResult' src='../../../images/search_img.png'></image>
+      <input class='search_input' placeholder='请输入关键词' bindinput='onInputListener' value='{{keyWords}}'></input>
+      <image hidden='{{deleteHidden}}' class='delete_image' src='../../../images/search_edit_delete.png' bindtap='clearInputData'></image>
+    </view>
+    <text class='title_cancel' bindtap='cancelBack'>取消</text>
+  </view>
+
+  <view hidden='{{searchTitleHidden}}'>
+    <view class='record_operaction'>
+      <view class='record_operaction_item_left'>
+        <image class='search_operation_image' src='../../../images/search_record.png'></image>
+        <text class='search_operation_text'>搜索历史记录</text>
+      </view>
+      <view class='space_view'></view>
+      <view class='record_operaction_item_right' bindtap='clearRecord'>
+        <image class='search_operation_image' src='../../../images/delete_record.png'></image>
+        <text class='search_clear_text' >清空历史记录</text>
+      </view>
+    </view>
+
+    <view class='keyWords_record' wx:for="{{keyWordList}}" bindtap='keywordSearch' data-current='{{index}}'>
+        <text class='keyWords_record_text'  >{{item.keyWord}}</text>
+    </view>
+
+    <text class='hot_search_text'>热门搜索</text>
+    <view class='keyWords_record' wx:for="{{hotWordList}}" bindtap='hotwordSearch' data-current='{{index}}'>
+        <text class='keyWords_record_text'  >{{item.keyword}}</text>
+    </view>
+
+  </view>
+
+  <view class='know_lib_group' wx:for='{{knowledges}}'>
+          <text wx:if='{{currentItem==index}}' class="know_lib_item {{clickItem==-1? '':'know_lib_item_expand'}}" data-current="{{index}}" bindtap='clickLib' >{{index+1+'. '+item.title}}</text>
+          <text wx:else class="know_lib_item" data-current="{{index}}" bindtap='clickLib' >{{index+1+'. '+item.title}}</text>
+          <text class='know_lib_answer_item' wx:if='{{currentItem==index&&clickItem!=-1}}'>{{item.contentss}}</text>
+  </view>
+
+  
+
+</view>

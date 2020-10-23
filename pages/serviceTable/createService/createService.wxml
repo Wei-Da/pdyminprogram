@@ -1,0 +1,236 @@
+<view class="ad_popError" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+<!-- 页面弹窗 -->
+<modal title="请确定服务人" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="cancleChange">
+  <view class="input-list">
+    <view class="input-item">
+            <text class="input-item-lable">公司类型</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="companyType" value="{{companyTypeIndex}}" range="{{companyTypes}}" mode="selector">{{companyTypes[companyTypeIndex]}}</picker>
+          </view>
+      <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">维修公司</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="repairCompany" value="{{repairCompanyIndex}}" range="{{repairCompanys}}" mode="selector">{{repairCompanys[repairCompanyIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">维修部门</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="repairDepartment" value="{{repairDepartmentIndex}}" range="{{repairDepartments}}" mode="selector">{{repairDepartments[repairDepartmentIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{isRepairCompany}}">
+            <text class="input-item-lable">维修人员</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{repairMemberIndex}}" range="{{repairMembers}}" mode="selector" data-pickername="repairMember">{{repairMembers[repairMemberIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{!isRepairCompany}}">
+            <text class="input-item-lable">服务公司</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="serviceCompany" value="{{serviceCompanyIndex}}" range="{{companyNames}}" mode="selector">{{companyNames[serviceCompanyIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{!isRepairCompany}}">
+            <text class="input-item-lable">服务人员</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{companyManIndex}}" range="{{companyMans}}" mode="selector" data-pickername="companyMan">{{companyMans[companyManIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">工单数</text>
+            <text class="input-item-content" >{{gds==''?'--':gds}}</text>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">及时率</text>
+            <text class="input-item-content" >{{jsl==''?'--':jsl}}</text>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">好评率</text>
+            <text class="input-item-content" >{{hpl==''?'--':hpl}}</text>
+          </view>
+
+    </view>
+</modal>
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='applySubmit'>
+    <view class="group">
+      <view class="group_title">
+        <text class='group_title_text'>创建服务</text>
+        <image class='scanner_image' src='../../../images/scanner.png' bindtap='scannerData'></image>
+      </view>
+      <view class="group-body">
+        <view class="input-list">
+          <view class="input-item">
+            <text class="input-item-lable">标题</text>
+            <view class="input-item-content">
+              <input type="text" placeholder="请输入标题" value='{{title}}' name="title"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">公司名称</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="companyName" value="{{companyNameIndex}}" range="{{companyNames}}" mode="selector">{{companyNames[companyNameIndex]}}</picker>
+            <text bindtap='companySearch' >公司搜索</text>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">部门</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="departmentName" value="{{departmentNameIndex}}" range="{{departmentNames}}" mode="selector">{{departmentNames[departmentNameIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">报修人员</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="repairName" value="{{repairNameIndex}}" range="{{repairNames}}" mode="selector" wx:if='{{!isOther}}'>{{repairNames[repairNameIndex]}}</picker>
+            <input type='text' style='flex:1' placeholder='请输入报修人员' wx:if='{{isOther}}' value='{{repairMan}}' name="repairMan"></input>
+            <text class="input-item-change" bindtap='changeRepair'>{{changeType}}</text>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">电话</text>
+            <view class="input-item-content">
+              <input type='text' wx:if='{{!isOther}}' disabled='true' value='{{telephone}}' name="telephone"></input>
+              <input type='text' wx:else placeholder='请输入电话' value='{{repairManPhone}}' name="repairManPhone"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务级别</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="serviceLevel" value="{{serviceLevelIndex}}" range="{{influenceLevels}}" mode="selector">{{influenceLevels[serviceLevelIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">创建时间</text>
+            <view class="input-item-content" bindtap="toTimeChoose">
+              <text>{{createTime}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">超时时间</text>
+            <view class="input-item-content" bindtap='toEndTimeChoose'>
+              <text>{{endTime}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">影响度</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="influenceLevel" value="{{influenceLevelIndex}}" range="{{influenceLevels}}" mode="selector">{{influenceLevels[influenceLevelIndex]}}</picker>
+          </view>
+
+          <!-- <view class="input-item">
+            <text class="input-item-lable">维修公司</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="repairCompany" value="{{repairCompanyIndex}}" range="{{repairCompanys}}" mode="selector">{{repairCompanys[repairCompanyIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">维修部门</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="repairDepartment" value="{{repairDepartmentIndex}}" range="{{repairDepartments}}" mode="selector">{{repairDepartments[repairDepartmentIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">维修人员</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{repairMemberIndex}}" range="{{repairMembers}}" mode="selector" data-pickername="repairMember">{{repairMembers[repairMemberIndex]}}</picker>
+          </view> -->
+
+          <view class="input-item">
+            <text class="input-item-lable">设备所属</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{deviceDepartmentIndex}}" range="{{deviceDepartments}}" mode="selector" data-pickername="deviceDepartment" wx:if='{{!isOtherDevice}}'>{{deviceDepartments[deviceDepartmentIndex]}}</picker>
+            <text type='text' style='flex:1' wx:if='{{isOtherDevice}}'>其它</text>
+            <text class="input-item-change" bindtap='changeDeviceFrom'>{{deviceType}}</text>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">设备名称</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{deviceNameIndex}}" range="{{deviceNames}}" mode="selector" data-pickername="deviceName" wx:if='{{!isOtherDevice}}'>{{deviceNames[deviceNameIndex]}}</picker>
+            <text wx:if='{{!isOtherDevice}}' bindtap='deviceSearch' >设备搜索</text>
+            <input type='text' style='flex:1' placeholder='请输入设备名称' wx:if='{{isOtherDevice}}' value='{{otherDeviceName}}' name="otherDeviceName"></input>
+          </view>
+
+          <view class="input-item" wx:if='{{!isOtherDevice}}'>
+            <text class="input-item-lable">负责人</text>
+            <view class="input-item-content">
+              <input type='text' placeholder='请输入负责人' value='{{devicePerson}}' name="serviceIp"></input>
+            </view>
+          </view>
+
+          <view class="input-item" wx:if='{{!isOtherDevice}}'>
+            <text class="input-item-lable">部门</text>
+            <view class="input-item-content">
+              <input type='text' placeholder='请输入部门' value='{{personDepartment}}' name="serviceIp"></input>
+            </view>
+          </view>
+
+          <view class="input-item" wx:if='{{!isOtherDevice}}'>
+            <text class="input-item-lable">联系电话</text>
+            <view class="input-item-content">
+              <input type='text' placeholder='请输入联系电话' value='{{personPhone}}' name="serviceIp"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务目录</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{serviceCatalogIndex}}" range="{{serviceCatalogs}}" mode="selector" data-pickername="serviceCatalog">{{serviceCatalogs[serviceCatalogIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">具体服务</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" value="{{serviceDetailIndex}}" range="{{serviceDetails}}" mode="selector" data-pickername="serviceDetail">{{serviceDetails[serviceDetailIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">权重</text>
+            <view class="input-item-content">
+              <text>{{weight}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务描述</text>
+            <text type='text' style='flex:1;text-align: right' bindtap='transferDescribe'>{{serviceDescribe}}</text>
+            <image class="transfer_image" src='../../../images/transfer.png'></image>
+          </view>
+
+
+          <view class="input-item">
+            <text class="input-item-lable">语音描述</text>
+            <view class='audio_record_group' bindtap='bindtapPlayAudio' wx:if="{{audioPath!=''}}" >
+              <image class="audio_image" src='../../../images/audio_icon.png'></image>
+              <text>语音</text>
+              <image class="record_image" src='../../../images/{{!isPlayAudio?"ready_record.png":"do_record.png"}}'></image> 
+            </view>
+            <text type='text' style='flex:1;text-align: right'></text>
+            <view class="{{isReady?'record_group':'start_record'}}" bindtouchstart='bindtouchstart' bindtouchend='bindtouchend' >
+              <text class="{{isReady?'record_text':'record_start_text'}}">{{isReady?'长按录音':'松开结束'}}</text>
+               <image class="record_image" src='../../../images/{{isReady?"ready_record.png":"do_record.png"}}'></image> 
+            </view>
+          </view> 
+
+
+    
+
+
+        </view>
+      </view>
+
+      <view class="group-header">上传图片</view>
+      <view class="group-body">
+        <view class="img-upload">
+          <view class="gallery">
+            <view class="item" wx:for="{{uploadimgs}}" wx:key="">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item}}" bindtap="previewImage" mode="aspectFill" /> 
+              <!-- 删除按钮 -->
+               <view class="delete" bindtap="deleteImage" data-index="{{index}}"><image style="left: {{imageWidth / 2 - 10}}px;" src='../../../images/icon_delete.png' /></view>
+            </view>
+            <view class="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src='../../../images/icon_add.png' class="button-upload" bindtap="chooseImage" />
+            </view>
+          </view> 
+        </view>
+      </view>
+
+    </view>
+
+
+    <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

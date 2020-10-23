@@ -1,0 +1,11 @@
+<!--pages/dataChart/companyChart/companyChart.wxml-->
+<view wx:if="{{isNoData}}" class='no_data_view'  >
+    <image src="../../../images/no_data.png"></image>
+    <text class='no_data_text'>没有数据</text>
+  </view>
+<view class="container" wx:if="{{!isNoData}}">
+     <!-- <text class='search_title'>公司报表</text>   -->
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:60%;width:100%" bindtouchstart="touchHandler"></canvas>
+     <canvas canvas-id="columnCanvas" class="canvas" style="height:40%;width:100%" bindtouchstart="touchHandler"></canvas> 
+</view>
+

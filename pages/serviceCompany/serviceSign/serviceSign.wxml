@@ -1,0 +1,7 @@
+<!--pages/serviceCompany/serviceSign/serviceSign.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<map class='map_attr'  latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' />
+<view class='sign_group'>
+        <input class='sign_item_text' placeholder='请输入签到说明' value='{{signExplain}}' bindinput='getInputValue' />
+        <button class='sign_item_button' bindtap='uploadSignData' >一键签到</button>
+</view>

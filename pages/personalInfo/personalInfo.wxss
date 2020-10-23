@@ -1,0 +1,14 @@
+/* pages/personalInfo/personalInfo.wxss */
+.group_title{
+  height: 70rpx;
+  line-height: 70rpx;
+	display: flex;
+  flex-direction: row;
+	padding-left: 20rpx;
+	background: #f9f9f9;
+}
+.group_title_text{
+  height: 70rpx;
+  flex: 1;
+  line-height: 70rpx;
+}

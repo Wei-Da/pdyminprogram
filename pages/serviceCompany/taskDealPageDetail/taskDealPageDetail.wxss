@@ -1,0 +1,17 @@
+/* pages/serviceCompany/taskDealPage/taskDealPage.wxss */
+.operate_group{
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  /* border-top:1rpx solid #e8e8e8; */
+}
+.operate_text{
+  flex: 1;
+  text-align: center;
+  line-height: 70rpx;
+  /* border: 1rpx solid #e8e8e8; */
+}
+.line{
+  height: 100%;
+  width: 10rpx;
+}

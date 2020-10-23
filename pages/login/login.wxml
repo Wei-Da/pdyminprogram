@@ -1,0 +1,60 @@
+<!--pages/login/login.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class='container'>
+  <form class='container-body' report-submit='true' bindsubmit='doLogin'>
+    <view class='logo-content'>
+      <view class='logo-content-detail'>
+        <image class='logo-content-detail-image' src='./../../images/logo.png'></image>
+        <text class='logo-content-detail-text'>派单易</text>
+      </view>
+    </view>
+
+    <view class='input-account'>
+      <!-- <text class='account-name'>账户</text> -->
+      <image class='account-image' src='./../../images/login_num.png'></image>
+      <input class='account-content' placeholder='请输入用户名' name="name" value='{{account}}'></input>
+    </view>
+
+    <view class='input-account'>
+      <!-- <text class='account-name'>密码</text> -->
+      <image class='account-image' src='./../../images/login_pwd.png'></image>
+      <input class='account-content' password='true' placeholder='请输入密码' name="pwd" value='{{pwd}}'></input>
+    </view>
+
+    <view class='input-account'>
+      <!-- <text class='account-name'>密码</text> -->
+      <image class='account-image' src='./../../images/serial.png'></image>
+      <input class='account-content' placeholder='请输入公司编号' name="serial" value='{{serial}}'></input>
+    </view>
+
+    <view class='input-account'>
+      <checkbox-group class='remember_view' name="isCheck" bindchange="checkboxChange">
+        <checkbox style='font-size:25rpx' value="one" checked='{{check}}'>记住用户名</checkbox>
+      </checkbox-group>
+       <view style='flex:1'></view>
+      <checkbox-group class='remember_view' name="isCheck" bindchange="checkpwdChange">
+         <view style='flex:1'></view> 
+        <checkbox style='font-size:25rpx' value="one" checked='{{pwdCheck}}'>记住密码</checkbox> 
+      </checkbox-group> 
+    </view>
+
+
+    <view class='input-account' style='margin-top: 10rpx'>
+      <radio-group class="radio-group" bindchange="typeChange">
+        <radio class='radio-item' style='font-size:25rpx' value="{{LoginType[0].name}}" checked='{{LoginType[0].checked}}'>{{LoginType[0].value}}</radio>
+        <view style='flex:1'></view>
+        <radio class='radio-item' style='font-size:25rpx' value="{{LoginType[1].name}}" checked='{{LoginType[1].checked}}'>{{LoginType[1].value}}</radio>
+      </radio-group>
+    </view>  
+
+
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" form-type='submit'>登录</button>
+    </view>
+
+
+    <text class='tip-text' hidden="{{warnning}}">{{tipContent}}</text>
+  </form>
+  <text class='product-company'>Copyright © 2017-2018 南京碧慧电子技术有限公司.</text>
+  <text class='product-company'>All Rights Reserved</text>
+</view> 

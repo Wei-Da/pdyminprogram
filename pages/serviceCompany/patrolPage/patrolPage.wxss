@@ -1,0 +1,68 @@
+.index-banner{
+	width: 100%;
+	height: 454rpx;
+}
+.index-banner .slide-image{
+	width: 100%;
+}
+.add_view{
+  height: 50rpx;
+  width: 100%;
+  background: #FA9901;
+  display: flex;
+  flex-direction: row
+}
+.floor_account_text{
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%
+}
+.add_image_button{
+  height: 30rpx;
+  width: 30rpx;
+  margin: 10rpx 10rpx;
+}
+.index-menu{
+	width: 100%;
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	background: #fff;
+}
+.index-menu-item{
+	-webkit-flex: 0 0 25%;
+	-webkit-box-flex: 0;
+	        flex: 0 0 25%;
+	max-width: 25%;
+	text-align: center;
+	margin-top: 10rpx;
+/* 	border-top: 1rpx solid #ddd;
+	border-bottom: 1rpx solid #ddd;
+	border-right: 1rpx solid #ddd; */
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	margin-bottom: -1rpx;
+}
+.btn_menu {
+  border:none;
+  text-align:center; 
+  padding:0;
+  margin:0;
+  /* line-height:120rpx; */
+  /* display: flex; */
+  flex-direction: column;
+  /* width: 30.33%; */
+  /* height: 60rpx; */
+}
+.index-menu-item image{
+	width: 110rpx;
+	height: 110rpx;
+}
+.index-menu-item text{
+	display: block;
+	font-size: 30rpx;
+	line-height: 1.4;
+	white-space: nowrap;
+}

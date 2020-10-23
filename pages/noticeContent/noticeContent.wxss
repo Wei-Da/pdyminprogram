@@ -1,0 +1,39 @@
+/* pages/setting/setting.wxss */
+.info_group{
+  display: flex;
+  flex: 1; 
+  background: #F8F8F8;
+  flex-direction: column;  
+}
+.info_item{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  width: 100%;
+  padding: 10rpx;
+  align-content: center;
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.info_image{
+  height: 40rpx;
+  width: 40rpx;
+  margin: 20rpx;
+}
+.info_text{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx;
+}
+.info_image_transfer{
+  height: 40rpx;
+  width: 23rpx;
+  margin: 20rpx;
+  margin-right: 25rpx;
+}
+.personal_info{
+  display: flex;
+  flex-direction: column;
+  background: #F8F8F8;
+  padding-top: 20rpx;
+}

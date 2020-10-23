@@ -1,0 +1,53 @@
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='applySubmit'>
+  <view class="group">
+    <view class="group-header">服务变更</view>
+      <view class="group-body">
+        <view class="input-list"> 
+
+          <view class="input-item">
+            <text class="input-item-lable">变更类型</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"             data-pickername="companyName" value="{{companyNameIndex}}" range="{{companyNames}}"               mode="selector">{{companyNames[companyNameIndex]}}</picker>
+          </view>
+
+           <view class="input-item">
+            <text class="input-item-lable" wx:if="{{isChangePerson}}">当前维修</text>
+            <text class="input-item-lable" wx:if="{{!isChangePerson}}">超时时间</text>
+            <view class="input-item-content">
+              <text type='text' disabled='true'>{{telephone}}</text>
+            </view>
+          </view>
+
+           <view class="input-item" wx:if="{{isChangePerson}}">
+            <text class="input-item-lable">变更维修</text>
+            <picker  class="input-item-content" bindchange="bindPickerChange"         data-pickername="departmentName" value="{{departmentNameIndex}}" range="{{departmentNames}}"              mode="selector">{{departmentNames[departmentNameIndex]}}</picker>
+          </view>
+
+          <view class="input-item" wx:if="{{!isChangePerson}}">
+            <text class="input-item-lable">变更时间</text>
+            <view class="input-item-content" bindtap='toEndTimeChoose'>
+              <text>{{endTime}}</text>
+            </view>
+          </view> 
+
+          <view class="input-item input-item-full">
+					<text class="input-item-label">服务描述</text>
+					<textarea placeholder="请输入描述"  value='{{serviceContent}}' name =  "serviceContent" maxlength="140"></textarea>
+				</view>
+
+
+
+        </view>
+      </view>
+
+    
+      
+  </view>
+
+  
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class="btn-submit">
+		<button class="btn-block btn-orange" form-type='submit' >提交</button>
+</view>
+  </form>
+</view>

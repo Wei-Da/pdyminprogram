@@ -1,0 +1,103 @@
+<!--pages/clientEvaluate/clientEvaluate.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class='container container-gray'>
+  <form class='container-body' report-submit='true' bindsubmit='doEvaluate'>
+    <view class='group'>
+      <view class='group-header'>服务客评</view>
+      <view class='group-body'>
+        <view class='input-list'>
+          <view class='input-item'>
+            <text class='input-item-lable'>报修人</text>
+            <view class="input-item-content">
+              <text>{{repairMan}}</text>
+            </view>
+          </view>
+
+          <view class='input-item'>
+            <text class='input-item-lable'>报修电话</text>
+            <view class="input-item-content">
+              <text>{{repairPhone}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务人</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="serviceName" value="{{serviceNameIndex}}" range="{{serviceNames}}" mode="selector">{{serviceNames[serviceNameIndex]}}</picker>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">服务电话</text>
+            <view class="input-item-content">
+              <text type="text">{{servicePhone}}</text>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">权重</text>
+            <view class="input-item-content">
+              <input type="text" placeholder="请输入权重值" name='weight' value='{{weight}}'></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">所属项目</text>
+            <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="projectName" value="{{projectIndex}}" range="{{listProject}}" mode="selector">{{listProject[projectIndex]}}</picker>
+          </view>
+
+          <view class='cost_group' wx:for="{{extraCostInfo}}">
+
+          <view class="input-item">
+            <text class="input-item-lable">额外花费</text>
+            <view class="input-item-content">
+              <!-- <text type='text'  name="" value="{{item.name}}"></text> -->
+              <input type='text' disabled='true'  name="{{index}}" value="{{costTypes[item.name]!=''?costTypes[item.name]:'暂无'}}"></input>
+            </view>
+          </view>
+
+          <view class="input-item">
+            <text class="input-item-lable">费用</text>
+            <view class="input-item-content">
+              <input type='text' placeholder='请输入费用'  name="cost{{index}}" value="{{item.cost!=''?item.cost:'暂无'}}"></input>
+            </view>
+          </view>
+
+          </view>
+
+          <view class="input-item input-item-full">
+            <text class="input-item-label">服务态度</text>
+            <radio-group class="radio-group" bindchange="attitudeChange">
+              <label class="radio" wx:for="{{serviceAttitudes}}">
+                <radio class='radio-item' value="{{item.name}}" checked="{{item.checked}}" />{{item.name}}
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="input-item input-item-full">
+            <text class="input-item-label">工作质量</text>
+            <radio-group class="radio-group" bindchange="qualityChange">
+              <label class="radio" wx:for="{{jobQualitys}}">
+                <radio class='radio-item' value="{{item.name}}" checked="{{item.checked}}" />{{item.name}}
+              </label>
+            </radio-group>
+          </view>
+
+          <!-- <view class="input-item input-item-full">
+            <text class="input-item-label">评价内容</text>
+            <textarea placeholder="可输入100字" maxlength="100" value='{{evaluateContent}}' name='evaluateContent'></textarea>
+          </view> -->
+
+          <view class="input-item">
+            <text class="input-item-lable">评价内容</text>
+            <text type='text' style='flex:1;text-align: right' bindtap='transferDescribe'>{{evaluateContent}}</text>
+            <image class="transfer_image" src='../../../images/transfer.png'></image>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" form-type='submit'>提交</button>
+    </view>
+  </form>
+
+</view>

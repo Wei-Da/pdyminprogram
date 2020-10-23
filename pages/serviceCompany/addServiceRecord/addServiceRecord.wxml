@@ -1,0 +1,59 @@
+<!--pages/serviceCompany/mineCreateService/mineCreateService.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+<view class="container container-gray">
+  <form class='container-body' report-submit='true' bindsubmit='applySubmit'>
+  <view class="group">
+    <view class="group-header">添加记录</view>
+      <view class="group-body">
+        <view class="input-list">
+          <view class="input-item">
+            <text class="input-item-lable">标题</text>
+            <view class="input-item-content">
+              <input type="text" placeholder="请输入标题" value='{{title}}' name="title"></input>
+            </view>
+          </view> 
+
+          
+
+        <view class="input-item input-item-full">
+					<text class="input-item-label">描述</text>
+					<textarea placeholder="请输入描述"  value='{{serviceContent}}' name =  "serviceContent" maxlength="140"></textarea>
+				</view>
+
+
+        </view>
+      </view>
+
+    <view class="group-header">图片</view>
+			<view class="group-body">
+				<view class="img-upload">
+
+					<!-- <image class="img-add" bindtap="chooseImage" src='../../../images/add_image.png'></image>
+					<view class="img-item" bindtap="previewImage" wx:for="{{uploadimgs}}" wx:key="{{index}}"  >
+						<image src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+					</view> -->
+
+        <view class="gallery">
+            <view class="item" wx:for="{{uploadimgs}}" wx:key="">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item}}" bindtap="previewImage" mode="aspectFill" /> 
+              <!-- 删除按钮 -->
+               <view class="delete" bindtap="deleteImage" data-index="{{index}}"><image style="left: {{imageWidth / 2 - 10}}px;" src='../../../images/icon_delete.png' /></view>
+            </view>
+            <view class="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src='../../../images/icon_add.png' class="button-upload" bindtap="chooseImage" />
+            </view>
+          </view> 
+
+				</view>
+			</view>
+      
+  </view>
+
+  
+  
+
+  <view class="btn-submit">
+		<button class="btn-block btn-orange" form-type='submit' >提交</button>
+	</view>
+  </form>
+</view>

@@ -1,0 +1,167 @@
+/* pages/serviceCompany/patrolPageDetail/patrolPageDetail.wxss */
+.device_des_group{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #C0C0C0;
+}
+.device_des_image{
+  height: 70rpx;
+  width: 68rpx;
+  margin-left: 35rpx;
+  margin-top: 25rpx;
+  margin-right: 15rpx;
+}
+.device_des_text_view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rpx;
+  margin-top: 12rpx;
+}
+.patrol_standard_des_group{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+.patrol_standard_text{
+  margin-left: 25rpx;
+  /* margin-top: 10rpx; */
+  /* margin-bottom: 5rpx; */
+}
+.patrol_standard_text_detail{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* text-align: center */
+}
+.patrol_standard_des_text{
+  height: 200rpx;
+  padding: 5rpx;
+  margin: 10rpx;
+  flex: 1;
+  border: 1rpx solid #C0C0C0;
+  font-size: 27rpx;
+}
+/*  重写 checkbox 样式  */
+checkbox .wx-checkbox-input{
+    border-radius: 50%; 
+   width: 40rpx;
+   height: 40rpx;
+   
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: green;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx;
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx;
+    color:#fff; 
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.patrol_standard_image_check{
+  display: flex;
+  flex-direction: column;
+  /* flex: 1; */
+}
+.patrol_standard_image_check_text{
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: 25rpx;
+}
+.patrol_standard_image_check_line{
+  width: 10rpx;
+  background: white
+}
+.patrol_standard_image_check_picture{
+  width: 100%;
+  height: 260rpx;
+}
+.patrol_standard_result{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #C0C0C0;
+  padding: 20rpx 20rpx;
+}
+.patrol_standard_result_button_group{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.patrol_standard_note{
+  padding: 20rpx 20rpx;
+}
+.result_button{
+  width: 100%;
+  margin: 20rpx 5rpx;
+}
+.input-item-patrol{
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #DDDDDD;
+}
+.input-item-lable{
+  display:block;
+  width:5em;
+  color:#666;
+  line-height: 70rpx;
+  margin-left: 25rpx;
+}
+.input-account{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  margin: 20rpx 60rpx;
+}
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.radio-item{
+  position: static;
+  
+}
+/*画廊*/
+.gallery {
+	/*margin-bottom: 100rpx;*/
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+/*每张图片所占容器*/
+.item {
+	position: relative;
+	margin: 5px;
+}
+
+/*删除按钮*/
+.delete {
+	position: absolute;
+	height: 20px;
+	bottom: 0;
+	width: 100%;
+	background: #ccc;
+	opacity: .8; 
+}
+
+.delete image {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}
+
+
+

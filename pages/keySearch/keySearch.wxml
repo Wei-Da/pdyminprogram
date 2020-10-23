@@ -1,0 +1,98 @@
+<!--pages/keySearch/keySearch.wxml-->
+<view class='all_group'>
+  <view class='title_group'>
+    <view class='title_group_search'>
+      <image class='search_image' bindtap='searchResult' src='../../images/search_img.png'></image>
+      <input class='search_input' placeholder='请输入关键词' bindinput='onInputListener' value='{{keyWords}}'></input>
+      <image hidden='{{deleteHidden}}' class='delete_image' src='../../images/search_edit_delete.png' bindtap='clearInputData'></image>
+    </view>
+    <text class='title_cancel' bindtap='cancelBack'>取消</text>
+  </view>
+
+  <view hidden='{{searchTitleHidden}}'>
+    <view class='record_operaction'>
+      <view class='record_operaction_item_left'>
+        <image class='search_operation_image' src='../../images/search_record.png'></image>
+        <text class='search_operation_text'>搜索历史记录</text>
+      </view>
+      <view class='space_view'></view>
+      <view class='record_operaction_item_right' bindtap='clearRecord'>
+        <image class='search_operation_image' src='../../images/delete_record.png'></image>
+        <text class='search_clear_text' >清空历史记录</text>
+      </view>
+    </view>
+
+    <view class='keyWords_record' wx:for="{{keyWordList}}" bindtap='keywordSearch' data-current='{{index}}'>
+        <text class='keyWords_record_text'  >{{item.keyWord}}</text>
+    </view>
+  </view>
+
+  <view class="service-list" wx:if="{{mRole==1}}">
+      <navigator class="service-item" wx:for="{{serviceList}}" url='../customerService/{{item.faultStatus==7?"customerServiceCloseDeatil":"customerWaitAllocationDetail"}}/{{item.faultStatus==7?"customerServiceCloseDeatil":"customerWaitAllocationDetail"}}?servicer={{item.personName}}&&companyName={{item.companyNameRepair}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.faultIp}}&&sysuserId={{item.sysuserId}}'>
+        <view class="service-img">
+            <image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../images/serious_note.png" mode="aspectFill"></image>
+            <image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../images/warnning_note.png" mode="aspectFill"></image>
+            <image wx:else="{{3==3}}" src="../../images/normal_note.png" mode="aspectFill"></image>
+          </view>
+          <view class="service-text">
+            <view class="service-tite">{{item.title}}</view>
+            <view class="service-tags">
+              <text>{{item.companyName}}</text>
+            </view>
+            <text class="service-city">{{item.faultDate}}</text>
+          </view>
+      </navigator>
+  </view>
+
+  <view class="service-list" wx:elif="{{mRole==2}}">
+      <navigator class="service-item" wx:for="{{serviceList}}" url="../serviceCompany/{{item.faultStatus=='5'||item.faultStatus=='6'?'waitServiceDetail':item.faultStatus=='3'?'waitConfirmDetail':'serviceHistoryRecordDetail'}}/{{item.faultStatus=='5'||item.faultStatus=='6'?'waitServiceDetail':item.faultStatus=='3'?'waitConfirmDetail':'serviceHistoryRecordDetail'}}?servicer={{item.personName}}&&companyName={{item.companyNameRepair}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.faultIp}}&&personId={{item.personId}}">
+        <view class="service-img">
+            <image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../images/serious_note.png" mode="aspectFill"></image>
+            <image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../images/warnning_note.png" mode="aspectFill"></image>
+            <image wx:else="{{3==3}}" src="../../images/normal_note.png" mode="aspectFill"></image>
+          </view>
+          <view class="service-text">
+            <view class="service-tite">{{item.title}}</view>
+            <view class="service-tags">
+              <text>{{item.companyName}}</text>
+            </view>
+            <text class="service-city">{{item.faultDate}}</text>
+          </view>
+      </navigator>
+  </view>
+
+  <view class="service-list" wx:elif="{{mRole==3}}">
+      <navigator class="service-item" wx:for="{{serviceList}}" url="../serviceTable/{{item.faultStatus=='1'?'serviceSelfHelpDetail':item.faultStatus=='7'?'serviceTableCloseDetail':item.faultStatus=='9'?'serviceTableHistoryDetail':'serviceTableDealDetail'}}/{{item.faultStatus=='1'?'serviceSelfHelpDetail':item.faultStatus=='7'?'serviceTableCloseDetail':item.faultStatus=='9'?'serviceTableHistoryDetail':'serviceTableDealDetail'}}?servicer={{item.personName}}&&companyName={{item.companyNameRepair}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.faultIp}}">
+        <view class="service-img">
+            <image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../images/serious_note.png" mode="aspectFill"></image>
+            <image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../images/warnning_note.png" mode="aspectFill"></image>
+            <image wx:else="{{3==3}}" src="../../images/normal_note.png" mode="aspectFill"></image>
+          </view>
+          <view class="service-text">
+            <view class="service-tite">{{item.title}}</view>
+            <view class="service-tags">
+              <text>{{item.companyName}}</text>
+            </view>
+            <text class="service-city">{{item.faultDate}}</text>
+          </view>
+      </navigator>
+  </view>
+
+  <!-- <view class="service-list" wx:else>
+      <navigator class="service-item" wx:for="{{serviceList}}" url='../customerService/customerWaitAllocationDetail/customerWaitAllocationDetail?servicer={{item.personName}}&&companyName={{item.companyRepairName}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.faultIp}}'>
+        <view class="service-img">
+            <image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../images/serious_note.png" mode="aspectFill"></image>
+            <image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../images/warnning_note.png" mode="aspectFill"></image>
+            <image wx:else="{{3==3}}" src="../../images/normal_note.png" mode="aspectFill"></image>
+          </view>
+          <view class="service-text">
+            <view class="service-tite">{{item.title}}</view>
+            <view class="service-tags">
+              <text>{{item.companyName}}</text>
+            </view>
+            <text class="service-city">{{item.faultDate}}</text>
+          </view>
+      </navigator>
+  </view> -->
+
+</view>

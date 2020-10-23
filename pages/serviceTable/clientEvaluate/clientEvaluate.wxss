@@ -1,0 +1,12 @@
+/* pages/clientEvaluate/clientEvaluate.wxss */
+.radio-item{
+  position: static;
+}
+.group_title_text{
+  height: 70rpx;
+  flex: 1;
+  line-height: 70rpx;
+}
+.cost_group{
+  border-top: 1rpx solid #e8e8e8;
+}

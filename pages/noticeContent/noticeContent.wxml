@@ -1,0 +1,31 @@
+<!--pages/noticeContent/noticeContent.wxml-->
+<view class='info_group'>
+<view wx:if="{{noticeTypes.length==0&&isFinishRequest}}" class='no_data_view'  >
+      <image src="../../../images/no_data.png"></image>
+    <text class='no_data_text'>没有数据</text>
+  </view>
+   <navigator wx:if="{{noticeTypes.length!=0}}" wx:for="{{noticeTypes}}" class="info_item" url='../serviceTable/noticeContentTitle/noticeContentTitle?noticeType={{item.noticeTypeId}}&&noticeTitle={{item.noticeTitle}}'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu1.png'></image>
+      <text class='info_text'>{{item.noticeTitle}}</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator>
+
+  <!-- <navigator class="info_item" url='../serviceTable/noticeContentTitle/noticeContentTitle?noticeType=1'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu6.png'></image>
+      <text class='info_text'>内部公告</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator>
+
+  <navigator class="info_item" url='../serviceTable/noticeContentTitle/noticeContentTitle?noticeType=2'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu10.png'></image>
+      <text class='info_text'>培训公告</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator> -->
+            
+</view>

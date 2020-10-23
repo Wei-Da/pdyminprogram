@@ -1,0 +1,22 @@
+<!--pages/modifyPwd/modifyPwd.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<form class='container-body' report-submit='true' bindsubmit='modifyPwd' >
+    <view class='input-account'>
+          <text class='page_text'>原密码:</text>
+          <input class='account-content' placeholder='请输入原密码' password='true' name="originalPwd" value='{{originalPwd}}'></input>
+    </view>
+
+    <view class='input-account'>
+          <text class='page_text'>新密码:</text>
+          <input class='account-content' placeholder='请输入新密码' password='true' name="newPwd" value='{{newPwd}}'></input>
+    </view>
+
+    <view class='input-account'>
+          <text class='page_text'>密码确认:</text>
+          <input class='account-content' placeholder='请输入确认密码' password='true' name="confirmPwd" value='{{confirmPwd}}'></input>
+    </view>
+    <view class="btn-submit">
+      <button class='btn-block btn-orange' form-type='submit'>确认修改</button>
+    </view>
+  </form>
+

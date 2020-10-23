@@ -1,0 +1,31 @@
+<!--pages/personalInfo/personalInfo.wxml-->
+<view class="group">
+      <view class="group_title">
+        <text class='group_title_text'>个人信息</text>
+      </view>
+
+      <view class='group-body'>
+        <view class='input-list'>
+          <view class='input-item'>
+            <text class='input-item-lable'>账户</text>
+            <view class="input-item-content">
+              <text>{{userName}}</text>
+            </view>
+          </view>
+
+          <view class='input-item'>
+            <text class='input-item-lable'>账户角色</text>
+            <view class="input-item-content">
+              <text>{{userRole}}</text>
+            </view>
+          </view>
+
+           <view class='input-item'>
+            <text class='input-item-lable'>联系电话</text>
+            <view class="input-item-content">
+              <text>{{userPhone}}</text>
+            </view>
+          </view>
+          </view>
+      </view>
+</view>

@@ -1,0 +1,31 @@
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+          <navigator class="input-list" style='border-bottom:1rpx solid #C0C0C0;border-top:0rpx solid #FFF;margin:0rpx' wx:for="{{taskDetail}}" url="./../patrolPageDetail/patrolPageDetail?faultId={{faultId}}&&state={{item.companyId==''?0:1}}&&instanceId={{item.companyName}}&&deviceId={{item.id}}&&activiInstanceId={{item.deptId}}&&companyId={{item.companyId}}" >
+            <view class="input-item" style='padding:0rpx'>
+              <text class="input-item-lable">机房名称</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' style='color:#000;font-size:35rpx' type="text" value='{{item.machineRoom}}' name="title"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx'>
+              <text class="input-item-lable">设备名称</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' type="text" value='{{item.deviceName}}' name="title"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+              <text class="input-item-lable">设备IP</text>
+              <view class="input-item-content">
+                <input class='record_title' disabled='true' type="text" value='{{item.deviceIP}}' name="title"></input>
+              </view>
+            </view>
+
+            <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+              <text class="input-item-lable">状态</text>
+              <view class="input-item-content">
+                <input class='record_title' style="{{item.companyId==''?'':'color: #179B16'}}" disabled='true' type="text" value="{{item.companyId==''?'未检测':'已检测'}}" name="title"></input>
+              </view>
+            </view>
+          </navigator>
+        </scroll-view>

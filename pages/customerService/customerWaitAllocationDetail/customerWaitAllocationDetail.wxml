@@ -1,0 +1,246 @@
+<!--pages/serviceCompany/waitServiceDetailDemo/waitServiceDetailDemo.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+<!-- 底部弹窗 -->
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+    <block wx:for-items="{{actionSheetItems}}">
+        <action-sheet-item class="bottom_menu" bindtap="bind{{item.bindtap}}" >{{item.txt}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel  class="cancel bottom_menu">取消</action-sheet-cancel>
+</action-sheet>
+<!-- 页面 -->
+<view class='group-detail'>
+<view class="detail-title"  > 
+        <view class="detail-title-item" >
+          <view class='detail-title-content'>
+            <view class='detail-title-content-de'>
+              <text class='info-text'>负责人员：{{servicer}}</text>
+              <text class='info-text' >公司名称：{{companyName}}</text>
+              <text class='info-text' >联系电话：{{phoneNo}}</text> 
+            </view>
+            <view class='detail-content-image-view' >
+              <image class='detail-content-image'  src='../../../images/event_center_icon.png' ></image>
+            </view>
+          </view>
+         </view>      
+</view>
+
+<view class="page">  
+  <!--顶部导航栏-->  
+  <view class="swiper-tab">  
+    <form class="tab-item {{currentTab==0 ? 'on' : ''}}" report-submit='true' bindsubmit='swichNav'> 
+        <button plain class="btn_menu" data-current="0" style='border:none;line-height:50rpx;border-radius: 0rpx' form-type='submit' data-type='click'>服务内容</button>
+       </form>
+       <form class="tab-item {{currentTab==1 ? 'on' : ''}}" report-submit='true' bindsubmit='swichNav'> 
+        <button plain class="btn_menu" data-current="1" style='border:none;line-height:50rpx;border-radius: 0rpx' form-type='submit' data-type='click'>服务进度</button>
+       </form> 
+       <form class="tab-item {{currentTab==2 ? 'on' : ''}}" report-submit='true' bindsubmit='swichNav'> 
+        <button plain class="btn_menu" data-current="2" style='border:none;line-height:50rpx;border-radius: 0rpx' form-type='submit' data-type='click'>关联资产</button>
+       </form>
+       <form class="tab-item {{currentTab==3 ? 'on' : ''}}" report-submit='true' bindsubmit='swichNav'> 
+        <button plain class="btn_menu" data-current="3" style='border:none;line-height:50rpx;border-radius: 0rpx' form-type='submit' data-type='click'>处理记录</button>
+       </form>
+       <form class="tab-item {{currentTab==4 ? 'on' : ''}}" report-submit='true' bindsubmit='swichNav'> 
+        <button plain class="btn_menu" data-current="4" style='border:none;line-height:50rpx;border-radius: 0rpx' form-type='submit' data-type='click'>知识库</button>
+       </form>
+       <view class="tab-item-add" hover-class="tab-item-add-change" wx:if='{{isCheckDevice}}'   >
+        <form  report-submit='true' bindsubmit='moreOperation'> 
+        <button plain class="btn_menu" style='border:none;line-height:50rpx;border-radius: 0rpx;color:#49B2F2' form-type='submit' data-type='click'>操作</button>
+       </form>
+     </view> 
+  </view>  
+  <view class='line'></view>
+  <!--内容主体-->  
+  <view class='page_group' wx:if='{{currentTab==0}}'>
+      <view class='assert_group' >
+        <view class='assert_title'>
+          <image class='assert_title_image' src='../../../images/service_detail.png'></image>
+          <text class='assert_title_text'>内容详情</text>
+        </view>
+        <view class='assert_content_group'>
+          <text class='service_content_item' decode='true'>标&ensp;&ensp;&ensp;&ensp;题:&ensp;{{faultInfo==null?"":faultInfo.title}}</text>
+          <text class='service_content_item' decode='true'>报&ensp;修&ensp;人:&ensp;{{faultInfo==null?"":faultInfo.repairmanName}}</text>
+          <text class='service_content_item' decode='true'>公司名称:&ensp;{{faultInfo==null?"":faultInfo.companyName}}</text>
+          <text class='service_content_item' decode='true'>联系电话:{{faultInfo==null?"":faultInfo.repairmanPhone}}</text>
+          <text class='service_content_item' decode='true'>故障等级:&ensp;{{faultInfo==null?"":faultInfo.faultLevel==10?"一般":faultInfo.faultLevel==15?"严重":"紧急"}}</text>
+          <text class='service_content_item' decode='true'>来&ensp;&ensp;&ensp;&ensp;源:&ensp;{{faultInfo==null?"":faultInfo.faultFrom==1?"一体机":faultInfo.faultFrom==2?"服务台":faultInfo.faultFrom==3?"APP":faultInfo.faultFrom==4?"工作流":faultInfo.faultFrom==7?"点检":"保养"}}</text>
+          <text class='service_content_item' decode='true'>故障时间:&ensp;{{faultInfo==null?"":faultInfo.faultDate}}</text>
+          <text class='service_content_item' decode='true'>影&ensp;响&ensp;度:&ensp;{{faultInfo==null?"":faultInfo.effect==1?"一般":faultInfo.effect==2?"严重":"紧急"}}</text>
+          <!-- <text class='service_content_item' decode='true'>故&ensp;障&ensp;IP:&ensp;{{faultInfo==null?"":faultInfo.faultIp}}</text> -->
+          <text class='service_content_item' decode='true'>服务目录:&ensp;{{faultInfo==null?"":faultInfo.serviceListName}}</text>
+          <text class='service_content_item' decode='true'>权&ensp;&ensp;&ensp;&ensp;重:&ensp;{{faultInfo==null?"":faultInfo.weight}}</text>
+          <text class='service_content_item' decode='true'>最近更新:&ensp;{{faultInfo==null?"":faultInfo.dualDate}}</text>
+        </view>
+        <view class='line'></view>
+        <view class='assert_content_group'>
+          <text class='service_fault_content'>故障内容:</text>
+          <text class='service_fault_content'>{{faultInfo==null?"":faultInfo.faultContent}}</text>
+        </view>
+        <view class='line'></view>
+
+        <view class="audio_record">
+            <text class="audio_record_text">语音描述:</text>
+            <text style='font-size:25rpx;line-height:68rpx'  wx:if="{{audioPath==''}}">暂无</text>
+            <view class='audio_record_group' bindtap='bindtapPlayAudio' wx:if="{{audioPath!=''}}" >
+              <image class="audio_image" src='../../../images/audio_icon.png'></image>
+              <text>语音</text>
+              <image class="record_image" src='../../../images/{{!isPlayAudio?"ready_record.png":"do_record.png"}}'></image> 
+            </view>
+            <text type='text' style='flex:1;text-align: right'></text>
+          </view>
+
+          <view class='line'></view>
+
+        <view class='service_image_content'>
+          <text class='service_image_content_title'>服务图片:</text>
+          <view class="img-upload" wx:if='{{pictures.length!=0}}' >
+              <view class="img-item" wx:for="{{pictures}}" bindtap="previewImage"  wx:key="{{index}}">
+                <image  src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+              </view>	 
+          </view>
+
+          <view class="img-upload" wx:if='{{pictures.length==0}}'>
+              <view class="img-item" >
+                <image  src="../../../images/no_image.png" ></image>
+              </view>
+          </view>
+        </view>
+
+        <view class='line'></view>
+
+         <view class='service_image_content'>
+          <text class='service_image_content_title'>验收图片:</text>
+          <view class="img-upload" wx:if='{{checkPicture.length!=0}}' >
+              <view class="img-item" wx:for="{{checkPicture}}" bindtap="previewImage"  wx:key="{{index}}">
+                <image  src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+              </view>	 
+          </view>
+
+          <view class="img-upload" wx:if='{{checkPicture.length==0}}'>
+              <view class="img-item" >
+                <image  src="../../../images/no_image.png" ></image>
+              </view>
+          </view>
+        </view>
+
+      </view> 
+  </view>
+
+
+   <view class='page_group' wx:if='{{currentTab==1}}'> 
+      <view class='assert_group' >
+         <view class='assert_title'>
+          <image class='assert_title_image' src='../../../images/process_steps.png'></image>
+          <text class='assert_title_text'>服务进度</text>
+          <text class='person_step'>{{personName==''?'（工程师未确认）':'（'+personName+'）'}}</text>
+        </view> 
+    <swiper class="step-group"  duration="300" 
+     style="height:{{mHeight}}rpx" bindchange='bindchangeSwiper'>
+     <block wx:for="{{serviceSteps}}" wx:key="{{this}}" wx:for-item="steps">
+        <swiper-item>
+            <scroll-view scroll-y="true" class="scoll-h"  >
+                <!-- <block wx:for="{{steps}}" wx:key="*this"> -->
+                   
+                   <view class="step-item" wx:for="{{steps}}" >
+          <view class='step-line-view'>
+             <image class='line-image' src='../../../images/pass_step.png' wx:if='{{item.isPass}}' ></image>
+              <image class='line-image' src='../../../images/unpass_step.png' wx:else></image>
+             <view class="step-half-line"  wx:if='{{index==0}}' ></view>
+             <view wx:elif='{{index==steps.length-1}}'>
+              <view wx:if='{{item.isPass}}' class="step-half-bottom-line"  ></view> 
+              <view wx:if='{{!item.isPass}}' class="step-half-bottom-line-gray"  ></view> 
+             </view>
+             <view wx:else>
+             <view wx:if='{{item.isPass}}' class="step-line"  ></view>  
+             <view wx:if='{{!item.isPass}}' class="step-line-gray"  ></view>    
+             </view>
+          </view>
+
+
+          <view class='setp-content'>
+            <view class='setp-content-detail'>
+              <text class='info-text-step'>{{item.processName}}</text>
+              <text class='info-text-step' wx:if='{{item.isPass&&item.stage==6}}'>{{item.serviceContent}}</text>
+              <text class='info-text-step' wx:if='{{item.isPass&&item.stage==6}}'>{{item.addr}}</text> 
+              <text class='info-text-step'>{{item.dualdate}}</text>
+            </view>
+            <view class='setp-content-image-view' >
+              <image class='setp-content-image' wx:if='{{item.isPass&&item.stage==6}}' bindtap="previewSignIMage" src='{{requestAddress+item.imageUrl}}' data-src='{{requestAddress+item.imageUrl}}'></image>
+            </view>
+          
+         </view>   
+     </view>
+                           
+            </scroll-view>
+        </swiper-item>
+        </block> 
+    </swiper>  
+      </view> 
+  </view> 
+
+  <view class='page_group' wx:if='{{currentTab==2}}'>
+      <view class='assert_group' >
+        <view class='assert_title'>
+          <image class='assert_title_image' src='../../../images/service_detail.png'></image>
+          <text class='assert_title_text'>资产信息</text>
+        </view>
+        <view class='assert_content_group'>
+        <text class='assert_content_item' decode='true'>负&ensp;责&ensp;人:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.personName}}</text>
+        <text class='assert_content_item' decode='true'>公司名称:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.companyName}}</text>
+        <text class='assert_content_item' decode='true'>部&ensp;&ensp;&ensp;&ensp;门:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deptName}}</text>
+        <text class='assert_content_item' decode='true'>联系电话:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.personPhone}}</text>
+          <text class='assert_content_item' decode='true'>设备类型:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceType}}</text>
+          <text class='assert_content_item' decode='true'>设备名称:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceName}}</text>
+          <text class='assert_content_item' decode='true'>设&ensp;备&ensp;IP:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceIP}}</text>
+          <text class='assert_content_item' decode='true'>设备品牌:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceBrand}}</text>
+          <text class='assert_content_item' decode='true'>机&ensp;&ensp;&ensp;&ensp;柜:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.equipmentCabinet}}</text>
+          <text class='assert_content_item' decode='true'>设备型号:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceModel}}</text>
+          <text class='assert_content_item' decode='true'>设&nbsp;备&nbsp;SN:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.deviceSN}}</text>
+          <text class='assert_content_item' decode='true'>设&nbsp;备&nbsp;PN:&ensp;{{equmentInfo==null?"暂无数据":equmentInfo.devicePN}}</text>
+        </view>
+      </view> 
+  </view>
+
+  <view class='page_group' wx:if='{{currentTab==3}}'>
+      <view class='assert_group'  >
+        <view class='assert_title'>
+          <image class='assert_title_image' src='../../../images/deal_record.png'></image>
+          <text class='assert_title_text'>处理记录</text>
+        </view>
+        <view class='record_group' >
+          <view class='record_content_item' style="border-bottom:1rpx solid #C0C0C0" wx:for='{{forwardRecords}}'>
+            <view class='record_content_item_text'>
+            <view class='record_content_item_group'>
+              <text class='record_content_item_text_line'>{{item.title}}</text>
+              <text class='record_content_item_content'>{{item.context}}</text>
+              <text class='record_content_item_time'>{{item.time}}</text>
+            </view>
+            </view>
+            <image wx:if="{{item.imageUrl==''}}" class='record_content_item_image' src='../../../images/no_image.png'></image>
+            <image wx:else class='record_content_item_image' data-src='{{requestAddress+item.imageUrl}}' src='{{requestAddress+item.imageUrl}}' bindtap='previewSignImage'></image>
+          </view>
+        </view>
+      </view>  
+  </view>
+
+  <view class='page_group' wx:if='{{currentTab==4}}'>
+      <view class='assert_group' >
+        <view class='assert_title'>
+          <image class='assert_title_image' src='../../../images/known_lib.png'></image>
+          <text class='assert_title_text'>知识库</text>
+        </view>
+        <view class='know_lib_group' wx:for='{{knowledges}}'>
+          <text wx:if='{{currentItem==index}}' class="know_lib_item {{clickItem==-1? '':'know_lib_item_expand'}}" data-current="{{index}}" bindtap='clickLib' >{{index+1+'. '+item.title}}</text>
+          <text wx:else class="know_lib_item" data-current="{{index}}" bindtap='clickLib' >{{index+1+'. '+item.title}}</text>
+          <text class='know_lib_answer_item' wx:if='{{currentItem==index&&clickItem!=-1}}'>{{item.contentss}}</text>
+        </view>
+      </view>
+  </view>
+
+  
+</view> 
+
+
+
+
+</view>
+ 

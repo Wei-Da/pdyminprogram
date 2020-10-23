@@ -1,0 +1,37 @@
+<!--pages/serviceTable/noticeContentDetail/noticeContentDetail.wxml-->
+<view class="group-body" wx:if="{{!isDeviceInfoDetail}}">
+        <view class="input-list" >
+          <view class="input-item" style='padding:0rpx'>
+            <text class="input-item-lable">公告主题</text>
+            <view class="input-item-content">
+              <input class='record_title' style='color:#000;font-size:35rpx' type="text"  value='{{noticeTitle}}' name="title"></input>
+            </view>
+          </view>
+
+
+          <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+            <text class="input-item-lable">公告内容</text>
+            <view class="input-item-content" style='text-align:right'>
+              <text class='record_title'  name="title">{{noticeContent}}</text>
+            </view>
+          </view>
+
+          <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+            <text class="input-item-lable">公告日期</text>
+            <view class="input-item-content">
+              <input class='record_title' type="text"  value='{{noticeDate}}' name="title"></input>
+            </view>
+          </view>
+
+          </view>
+
+
+          </view>
+<view class="btn-submit">
+		<button class="btn-block btn-orange" open-type='contact' >在线咨询</button>
+	</view>
+
+
+
+
+         

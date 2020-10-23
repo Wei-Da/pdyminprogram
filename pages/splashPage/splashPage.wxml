@@ -1,0 +1,4 @@
+<!--pages/splashPage/splashPage.wxml-->
+  <image class='my_image' src='../../images/splash_page.png'></image>  
+ <!-- <button style='color:#49B2F2'>更多</button> -->
+

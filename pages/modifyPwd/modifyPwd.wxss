@@ -1,0 +1,25 @@
+/* pages/modifyPwd/modifyPwd.wxss */
+.input-account{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  margin: 20rpx 20rpx;
+}
+.account-content{
+  height: 80rpx;
+  width: 100%;
+  border-bottom: 1rpx solid gainsboro;
+  font-size: 25rpx;
+  
+}
+.page_text{
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.login_name_text{
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+  font-size: 25rpx;
+}

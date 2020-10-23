@@ -1,0 +1,49 @@
+<!--pages/serviceCompany/serviceHistoryRecord/serviceHistoryRecord.wxml-->
+<image class='buttom' src='../../../images/search_button.png' bindtap='keyWordsSearch'></image>
+<modal title="条件筛选" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirmChange" bindcancel="cancleChange">
+     <view class='popview_modal'>
+      <view class='popview_modal_item'>
+        <text class='popview_modal_text'>服务内容：</text>
+        <input class='popview_modal_text_input' placeholder='请输入关键词' value='{{serviceContent}}' bindinput='bindServiceContent'></input>
+      </view>
+      <view class='popview_modal_item'>
+        <text class='popview_modal_text'>紧急程度：</text>
+        <picker class='picker_view'  bindchange="bindPickerChange" data-pickername="urgencyLevel" value="{{urgencyLevelIndex}}" range="{{urgencyLevels}}"               mode="selector">{{urgencyLevels[urgencyLevelIndex]}}</picker>
+      </view>
+      <view class='popview_modal_item'>
+        <text class='popview_modal_text'>开始时间：</text>
+        <picker class='picker_view' mode="date" value="{{nowStartDate}}" start="{{startDate}}" end="{{endDate}}" data-current='start' bindchange="bindDateChange">{{nowStartDate}}</picker>
+      </view>
+      <view class='popview_modal_item'>
+        <text class='popview_modal_text' >结束时间：</text>
+        <picker class='picker_view' mode="date" value="{{nowEndDate}}" start="{{closeStartDate}}" end="{{closeEndDate}}" data-current='end'  bindchange="bindDateChange">{{nowEndDate}}</picker>
+      </view>
+    </view> 
+</modal>
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+<view wx:if="{{serviceList.length==0&&isFinishRequest}}" class='no_data_view'  >
+    <image src="../../../images/no_data.png"></image>
+    <text class='no_data_text'>没有数据</text>
+  </view>
+  <view class="service-list" wx:if="{{serviceList.length!=0}}">
+<navigator class="service-item"  wx:for="{{serviceList}}" url="../{{item.faultStatus=='5'||item.faultStatus=='6'?'waitServiceDetail':item.faultStatus=='3'?'waitConfirmDetail':'customerWaitAllocationDetail'}}/{{item.faultStatus=='5'||item.faultStatus=='6'?'waitServiceDetail':item.faultStatus=='3'?'waitConfirmDetail':'customerWaitAllocationDetail'}}?servicer={{item.personName}}&&companyName={{item.companyNameRepair}}&&phoneNo={{item.personMobile}}&&faultId={{item.faultId}}&&serviceId={{item.serviceid}}&&faultIp={{item.equipmentId}}&&personId={{item.personId}}&&processId={{item.processId}}&&perId={{item.perId}}" >
+<form report-submit='true' bindsubmit='applySubmit' style='width:100%'>
+        <button plain class='btn_menu' style='border:none;line-height:50rpx;' form-type='submit' data-type='click'>
+      <view class="service-img">
+					<image wx:if="{{item.faultStatus==1||item.faultStatus==3}}" src="../../../images/serious_note.png" mode="aspectFill"></image>
+          					<image wx:elif="{{item.faultStatus==5||item.faultStatus==6}}" src="../../../images/warnning_note.png" mode="aspectFill"></image>
+					<image wx:else="{{3==3}}" src="../../../images/normal_note.png" mode="aspectFill"></image>
+				</view>
+				<view class="service-text">
+					<view class="service-tite">{{item.title}}</view>
+					<view class="service-tags">
+						<text>{{item.companyName}}</text>
+					</view>
+					<text class="service-city">{{item.faultDate}}</text>
+				</view>
+        </button>
+      </form>
+    </navigator>
+  </view>
+
+</scroll-view>

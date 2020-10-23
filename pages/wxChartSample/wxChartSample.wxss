@@ -1,0 +1,11 @@
+/* pages/wxChartSample/wxChartSample.wxss */
+.input-item{
+  display: flex;
+  flex-direction: row;
+  padding: 25rpx 15rpx;
+  border-bottom: 1rpx solid #C0C0C0;
+}
+
+.query_chart{
+  margin: 30rpx 15rpx;
+}

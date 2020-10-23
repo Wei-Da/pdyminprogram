@@ -1,0 +1,5 @@
+<!--pages/serviceDescribe/serviceDescribe.wxml-->
+<view class='describe_group'>
+  <textarea class='describe_textarea' placeholder='请输入描述' maxlength='100' bindinput='bindInputValue' bindconfirm='bindConfirmValue' value='{{serviceContent}}' ></textarea>
+  <text class='describe_number'>{{fontNum}}/100</text>
+</view>

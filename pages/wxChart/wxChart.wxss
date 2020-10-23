@@ -1,0 +1,109 @@
+/* pages/wxChart/wxChart.wxss */
+.main_page{
+  display: flex;
+  flex: 1;  
+  flex-direction: column;
+}
+.data_item{
+  display: flex;
+  flex-direction: column;
+  background: #49B2F2;
+  height: 240rpx;
+  margin: 0 12rpx;
+  margin-top: 15rpx;
+  justify-content: center; 
+  text-align: center;
+}
+.chart_image{
+  height: 45rpx;
+  width: 45rpx;
+  margin: 0 auto;
+}
+.data_item_text{
+  color: white;
+  font-size: 25rpx;
+  /* margin-top: 5rpx; */
+}
+.data_item_sub{
+  display: flex; 
+  margin: 5rpx 0rpx;
+  flex-direction: row;
+}
+.data_item_sub_chart{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #49B2F2;
+  height: 240rpx;
+  margin: 0 12rpx; 
+  margin-top: 15rpx;
+  justify-content: center; 
+  text-align: center;
+}
+.data_item_chart_right{
+   width: 50%; 
+  display: flex;
+  flex-direction: column; 
+  /* background: #49B2F2; */
+  height: 240rpx;
+  margin: 0 12rpx; 
+  margin-top: 15rpx;
+  /* justify-content: center; 
+  text-align: center; */
+}
+.data_item_chart_right_sub{
+
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #49B2F2;
+  justify-content: center; 
+  text-align: center;
+  margin-bottom: 5rpx;
+}
+.data_item_chart_right_sub_bottom{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #49B2F2;
+  justify-content: center; 
+  text-align: center;
+  margin-top: 5rpx;
+}
+.btn_menu {
+  border:none;
+  text-align:center; 
+  padding:0;
+  margin:0;
+  /* line-height:120rpx; */
+  /* display: flex; */
+  flex-direction: column;
+  /* width: 30.33%; */
+  /* height: 60rpx; */
+}
+.btn_chart_menu {
+  border:none;
+  text-align:center; 
+  padding:0;
+  margin:0;
+  /* line-height:120rpx; */
+   display: flex; 
+  flex-direction: column;
+  /* width: 30.33%; */
+   height: 240rpx; 
+   justify-content: center; 
+  
+}
+.btn_chart_menu_item {
+  border:none;
+  text-align:center; 
+  padding:0;
+  margin:0;
+  /* line-height:120rpx; */
+   display: flex; 
+  flex-direction: column;
+  /* width: 30.33%; */
+   height: 120rpx; 
+   justify-content: center; 
+  
+}

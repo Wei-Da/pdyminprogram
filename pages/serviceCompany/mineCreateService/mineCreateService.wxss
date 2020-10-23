@@ -1,0 +1,123 @@
+/* pages/serviceCompany/mineCreateService/mineCreateService.wxss */
+.image-dis{
+  margin: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.input-item-change{
+  display: block;
+  width: 2.5em;
+  color: #49B2F2;
+  
+}
+.group_title{
+  height: 70rpx;
+  line-height: 70rpx;
+	display: flex;
+  flex-direction: row;
+	padding-left: 20rpx;
+	background: #f9f9f9;
+}
+.scanner_image{
+  height: 50rpx;
+  width: 50rpx;
+  margin: 10rpx 10rpx;
+  
+}
+.group_title_text{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.switch_detail{
+  height: 70rpx;
+  display: flex;
+  flex-direction: row
+}
+.fun_space{
+  height: 70rpx;
+  flex: 1
+}
+.switch_detail_image{
+  height: 23rpx;
+  width: 23rpx;
+  margin: 23.5rpx 20rpx;
+}
+.switch_detail_text{
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 23rpx;
+  margin-left: -15rpx;
+  color: #A6A6A6;
+}
+.create_des{
+	background: #fff;
+	border-bottom: 1rpx solid #ddd;
+}
+.create_des .input-list{
+	margin: 0;
+	border: none;
+}
+.record_group{
+  display: flex;
+  flex-direction: row;
+  border: 1rpx solid #E8E8E8;
+  border-radius: 8rpx;
+  padding: 0rpx 10rpx;
+  
+}
+.start_record{
+  display: flex;
+  flex-direction: row;
+  border: 1rpx solid #E8E8E8;
+  border-radius: 8rpx;
+  padding: 0rpx 10rpx;
+  background: #5AB9F4;
+}
+.record_image{
+  width: 20rpx;
+  height: 20rpx;
+  margin: 24rpx 5rpx;
+  
+}
+.record_text{
+  color: #5AB9F4
+}
+.record_start_text{
+  color: #FFFFFF
+}
+.audio_image{
+  width: 20rpx;
+  height: 20rpx;
+  margin: 24rpx 15rpx;
+  
+}
+/*画廊*/
+.gallery {
+	/*margin-bottom: 100rpx;*/
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+/*每张图片所占容器*/
+.item {
+	position: relative;
+	margin: 5px;
+}
+
+/*删除按钮*/
+.delete {
+	position: absolute;
+	height: 20px;
+	bottom: 0;
+	width: 100%;
+	background: #ccc;
+	opacity: .8; 
+}
+
+.delete image {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}

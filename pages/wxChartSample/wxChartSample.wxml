@@ -1,0 +1,12 @@
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<view class="input-item">
+     <text class="input-item-lable">统计类型</text>
+     <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="countType" value="{{countTypeIndex}}" range="{{countTypes}}" mode="selector">{{countTypes[countTypeIndex]}}</picker>
+</view>
+
+<view class="input-item">
+     <text class="input-item-lable">报表类型</text>
+     <picker class="input-item-content" bindchange="bindPickerChange" data-pickername="reportType" value="{{reportTypeIndex}}" range="{{reportTypes}}" mode="selector">{{reportTypes[reportTypeIndex]}}</picker>
+</view>
+
+<button type='primary' class='query_chart' bindtap='turntoChartPage' >查看报表</button>

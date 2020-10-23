@@ -1,0 +1,47 @@
+<!--pages/setting/setting.wxml-->
+<modal title="温馨提示" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalCancel">
+      确定退出登录
+</modal>
+
+<!-- <view class='personal_info'>
+  <text style='margin-left: 20rpx;margin-bottom:5rpx'>账户：{{userName}}</text>
+  <text style='margin-left:20rpx;margin-bottom:20rpx'>联系方式：{{userPhone}}</text> 
+</view> -->
+<view class='info_group'>
+   <navigator class="info_item" url='../personalInfo/personalInfo'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu3.png'></image>
+      <text class='info_text'>个人信息</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator>
+
+  <navigator class="info_item" url='../modifyPwd/modifyPwd'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu4.png'></image>
+      <text class='info_text'>密码修改</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator>
+
+   <navigator class="info_item" url='../modifyLoginName/modifyLoginName'>
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu5.png'></image>
+      <text class='info_text'>电话号码修改</text> 
+    </view>
+      <image class='info_image_transfer' src='../../images/transfer.png'></image>         
+  </navigator> 
+
+   <navigator class="info_item" url='../versionsPage/versionsPage' >
+   <view style='display: flex;flex: 1'>
+      <image class='info_image' src='../../images/menu6.png'></image>
+      <text class='info_text'>版本信息</text> 
+    </view>
+       <image class='info_image_transfer' src='../../images/transfer.png'></image>          
+  </navigator> 
+            
+</view>
+
+<form report-submit='true' class="btn-submit" style='background: #F8F8F8;' bindsubmit='loginOut'>
+    <button class="btn-block btn-orange" form-type='submit' >退出登录</button>
+</form>

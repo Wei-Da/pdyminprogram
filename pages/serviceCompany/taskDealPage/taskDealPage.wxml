@@ -1,0 +1,29 @@
+<!--pages/serviceCompany/taskDealPage/taskDealPage.wxml-->
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+  <navigator class="input-list" style='border-top:0rpx solid #FFF;margin:0rpx' wx:for="{{taskDetail}}" url='../../serviceCompany/taskDealPageDetail/taskDealPageDetail?activiInstanceId={{item.activiInstanceId}}&&assignee={{item.assignee}}&&createTime={{item.createTime}}&&name={{item.name}}&&status={{item.status}}&&taskId={{item.taskId}}&&companyName={{item.companyName}}&&projectName={{item.projectName}}&&userName={{item.userName}}' >
+              <view class="input-item" style='padding:0rpx'>
+                <text class="input-item-lable">任务名称</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' style='color:#000;font-size:35rpx;text-align:right' type="text" value='{{item.name}}' name="title"></input>
+                </view>
+              </view>
+
+
+              <view class="input-item" style='padding:0rpx'>
+                <text class="input-item-lable">创建时间</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{item.createTime}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+                <text class="input-item-lable">状态</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{item.status}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              
+
+  </navigator>
+</scroll-view>

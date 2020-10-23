@@ -1,0 +1,8 @@
+<!--pages/dataChart/companyDate/companyDate.wxml-->
+<view class="container">
+    <view style='text-align:center'>
+      <text>故障日期分布</text>
+    </view>
+    <canvas style='width:100%;height:500rpx;margin-top: 100rpx;' canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+    <canvas canvas-id="columnCanvas" class="canvas" style="height:500rpx;width:100%" bindtouchstart="touchHandlerLine" bindtouchmove="moveHandlerLine" bindtouchend="touchEndHandlerLine"></canvas> 
+</view>

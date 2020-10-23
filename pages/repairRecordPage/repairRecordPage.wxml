@@ -1,0 +1,27 @@
+<!--pages/repairRecordPage/repairRecordPage.wxml-->
+<view class='service-list'>
+  <view class='common_title'>
+      <text class='title_text'>主题:</text>
+      <text class='content_text'>维修主题</text>
+  </view>
+  <view class='common_title'>
+      <text class='title_text'>时间:</text>
+      <text class='content_text'>2018-08-13 10:11:23</text>
+  </view>
+  <view class='assert_content_group'>
+       <text class='title_text'>故障内容:</text>
+       <text class='service_fault_content'>改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。</text>
+  </view>
+
+  <view class='patrol_standard_image_check'>
+    <text class='title_text'>原图：</text>
+    <view class="group-body">
+				<view class="img-upload">
+					<view class="img-item" bindtap="previewImage" wx:for="{{originalimgs}}" wx:key="{{index}}"  >
+						<image src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+					</view>
+          <image class="img-add" wx:if="{{originalimgs.length==0}}"  src='../../../images/no_image.png'></image>
+				</view>
+			</view>
+  </view>
+</view>

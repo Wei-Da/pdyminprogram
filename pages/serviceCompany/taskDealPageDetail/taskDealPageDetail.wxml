@@ -1,0 +1,58 @@
+<!--pages/serviceCompany/taskDealPage/taskDealPage.wxml-->
+<modal title="温馨提示" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalCancel">
+      确定提交任务
+</modal>
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="onPullDownRefresh">
+  <view class="input-list" style='border-bottom:0rpx solid #FFF;border-top:0rpx solid #FFF;margin:0rpx'  >
+              <view class="input-item" style='padding:0rpx'>
+                <text class="input-item-lable">任务名称</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' style='color:#000;font-size:35rpx;text-align:right' type="text" value='{{name}}' name="title"></input>
+                </view>
+              </view>
+
+
+              <view class="input-item" style='padding:0rpx'>
+                <text class="input-item-lable">创建时间</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{createTime}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+                <text class="input-item-lable">状态</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{status}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+                <text class="input-item-lable">公司名称</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{companyName}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+                <text class="input-item-lable">项目名称</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{projectName}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              <view class="input-item" style='padding:0rpx;border-top:1rpx solid #FFFFFF'>
+                <text class="input-item-lable">办理任务人</text>
+                <view class="input-item-content">
+                  <input class='record_title' disabled='true' type="text" value='{{userName}}' style='text-align:right' name="title"></input>
+                </view>
+              </view>
+
+              
+              <view class='operate_group'>
+                  <button class='operate_text' bindtap='dealTask'>办理任务</button>
+                  <view class='line'></view>
+                  <button class='operate_text' bindtap='submitTask'>提交任务</button>
+              </view>
+
+  </view>
+</scroll-view>

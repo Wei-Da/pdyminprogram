@@ -1,0 +1,116 @@
+<!--pages/serviceCompany/patrolPageDetail/patrolPageDetail.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<form class='container-body' report-submit='true' bindsubmit='applySubmit' wx:if='{{state==0}}'>
+<view class='patrol_standard_des_group'>
+  <text class='patrol_standard_text'>点检标准：</text>
+  <text class='patrol_standard_des_text'>{{patrolStandard}}</text>
+</view>
+
+<view class='patrol_standard_image_check'>
+    <text class='patrol_standard_image_check_text'>原图：</text>
+    <view class="group-body">
+				<view class="img-upload">
+					<view class="img-item" bindtap="previewImage" wx:for="{{originalimgs}}" wx:key="{{index}}"  >
+						<image src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+					</view>
+          <image class="img-add" wx:if="{{originalimgs.length==0}}"  src='../../../images/no_image.png'></image>
+				</view>
+			</view>
+  </view>
+
+<view class='patrol_standard_image_check'>
+    <text class='patrol_standard_image_check_text'>巡检图：</text>
+    <view class="group-body" >
+				<view class="img-upload">
+					<view class="gallery">
+            <view class="item" wx:for="{{uploadPatrolimgs}}" wx:key="">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item}}" bindtap="previewPatrolImage" mode="aspectFill" />
+              <!-- 删除按钮 -->
+              <view class="delete" bindtap="deleteImage" data-index="{{index}}"><image style="left: {{imageWidth / 2 - 10}}px;" src='../../../images/icon_delete.png' /></view>
+            </view>
+            <view class="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src='../../../images/icon_add.png' class="button-upload" bindtap="choosePatrolImage" />
+            </view>
+              </view>
+				</view>
+			</view>
+  </view>
+
+  <view class="input-item-patrol">
+      <text class="input-item-lable">描述</text>
+      <text type='text' style='flex:1;text-align: right;line-height: 70rpx'  bindtap='transferDescribe'>{{serviceDescribe}}</text>
+      <image class="transfer_image" src='../../../images/transfer.png' ></image>
+  </view>
+
+  <text class='patrol_standard_text' style='margin-bottom: 10rpx;margin-top: 10rpx'>点检结果：</text>  
+
+  <view class='input-account' style='margin-top: 10rpx'>
+      <radio-group class="radio-group" bindchange="resultChange">
+        <radio class='radio-item' style='font-size:25rpx' value="{{patrolResult[0].value}}" checked='{{patrolResult[0].checked}}'>{{patrolResult[0].name}}</radio>
+        <view style='flex:1'></view>
+        <radio class='radio-item' style='font-size:25rpx' value="{{patrolResult[1].value}}" checked='{{patrolResult[1].checked}}'>{{patrolResult[1].name}}</radio>
+      </radio-group>
+    </view>  
+
+<button type='primary' class='result_button' form-type='submit'>提交</button>
+</form>
+
+<form class='container-body' bindsubmit='updateRecord' wx:if='{{state==1}}'>
+<view class='patrol_standard_des_group'>
+  <text class='patrol_standard_text'>点检标准：</text>
+  <text class='patrol_standard_des_text'>{{patrolStandard}}</text>
+</view>
+
+<view class='patrol_standard_image_check'>
+    <text class='patrol_standard_image_check_text'>原图：</text>
+    <view class="group-body">
+				<view class="img-upload">
+					<view class="img-item" bindtap="previewImage" wx:for="{{originalimgs}}" wx:key="{{index}}"  >
+						<image src="{{item}}" data-src='{{item}}' mode="aspectFill"></image>
+					</view>
+          <image class="img-add" wx:if="{{originalimgs.length==0}}"  src='../../../images/no_image.png'></image>
+				</view>
+			</view>
+  </view>
+
+<view class='patrol_standard_image_check'>
+    <text class='patrol_standard_image_check_text'>巡检图：</text>
+    <view class="group-body" >
+				<view class="img-upload">
+          <view class="gallery">
+            <view class="item" wx:for="{{uploadPatrolimgs}}" wx:key="">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item}}" bindtap="previewPatrolImage" mode="aspectFill" />
+              <!-- 删除按钮 -->
+              <view class="delete" bindtap="deleteImage" data-index="{{index}}"><image style="left: {{imageWidth / 2 - 10}}px;" src='../../../images/icon_delete.png' /></view>
+            </view>
+            <view class="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src='../../../images/icon_add.png' class="button-upload" bindtap="choosePatrolImage" />
+            </view>
+              </view>
+				</view>
+			</view>
+  </view>
+
+  <view class="input-item-patrol">
+      <text class="input-item-lable">描述</text>
+      <text type='text' style='flex:1;text-align: right;line-height: 70rpx'  bindtap='transferDescribe'>{{serviceDescribe}}</text>
+      <image class="transfer_image" src='../../../images/transfer.png' ></image>
+  </view>
+
+  <text class='patrol_standard_text' style='margin-bottom: 10rpx;margin-top: 10rpx'>点检结果：</text>  
+
+  <view class='input-account' style='margin-top: 10rpx'>
+      <radio-group class="radio-group" bindchange="resultChange">
+        <radio class='radio-item' style='font-size:25rpx' value="{{patrolResult[0].value}}" checked='{{patrolResult[0].checked}}' >{{patrolResult[0].name}}</radio>
+        <view style='flex:1'></view>
+        <radio class='radio-item' style='font-size:25rpx' value="{{patrolResult[1].value}}" checked='{{patrolResult[1].checked}}'>{{patrolResult[1].name}}</radio>
+      </radio-group>
+    </view>  
+
+<button type='primary' class='result_button' form-type='submit'>提交</button> 
+
+
+</form>
+
+
+
